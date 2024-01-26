@@ -22,6 +22,17 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+
+
+
+
+
+
+
+
+
+
 
 /* USER CODE END Includes */
 
@@ -32,6 +43,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
+
+
 
 /* USER CODE END PD */
 
@@ -44,7 +59,30 @@
 UART_HandleTypeDef huart6;
 
 osThreadId defaultTaskHandle;
+
+
+
+
+
+
+
+
+
+
+
 /* USER CODE BEGIN PV */
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* USER CODE END PV */
 
@@ -55,6 +93,13 @@ static void MX_USART6_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
+void freertos_IntroTitle(void);
+
+
+
+
+
+
 
 /* USER CODE END PFP */
 
@@ -94,9 +139,16 @@ int main(void)
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  freertos_IntroTitle();
+  printf("[TASK]main\n");
 
 
   __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
+
+
+
+
+
 
 
   /* USER CODE END 2 */
@@ -124,6 +176,10 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+//  USER_THREADS();
+
+
+
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -251,6 +307,49 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+char* OSVersion(void)
+{
+	return tskKERNEL_VERSION_NUMBER;
+}
+
+//
+// 'freertos_IntroTitle'
+//
+void freertos_IntroTitle(void)
+{
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] \n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                     \n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                      \n");
+  printf("]        ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]      :]]]        ]   .]]]].    :]]]]:  \n");
+  printf("]        ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]       ]]]       ]]   ]]]]]]   :]]]]]]  \n");
+  printf("]  ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]  ]]]:  ]]]]]        :]]  ]]:  ]]:  :]  \n");
+  printf("]  ]]]]]]]]]  .    ]]].    :]]]].    :]]]  ]]]]  ]]]]]  ]     ]]:  :]]  ]]       \n");
+  printf("]  ]]]]]]]]]       ]].      :]].      :]]  ]]]:  ]]]]] ]]     ]]    ]]  ]]]:     \n");
+  printf("]       ]]]]   .]]]]]  :]]:  ]]  :]]:  ]]       :]]]]  ]]     ]]    ]]  :]]]]]:  \n");
+  printf("]       ]]]]  ]]]]]]]        ]]        ]]      ]]]]]   ]]     ]]    ]]   .]]]]]: \n");
+  printf("]  ]]]]]]]]]  ]]]]]]]        ]]        ]]  ]]]  .]]    ]]     ]]    ]]      :]]] \n");
+  printf("]  ]]]]]]]]]  ]]]]]]]  ]]]]]]]]  ]]]]]]]]  ]]]  ]]     ]]     ]]:  :]]        ]] \n");
+  printf("]  ]]]]]]]]]  ]]]]]]]   .]]: ]]   .]]: ]]  ]]]:        ]]     :]]  ]]:  ]:.  :]] \n");
+  printf("]  ]]]]]]]]]  ]]]]]]].       ]].       ]]  ]]]]  ]:    ]]      ]]]]]]   ]]]]]]]: \n");
+  printf("]  ]]]]]]]]]  ]]]]]]]].     :]]].     :]]  ]]]] ]]]    ]]      .]]]].   .]]]]]:  \n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                                   \n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                                    \n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   The Real Time Kernel \n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]     FreeRTOS version %s\n", OSVersion());
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
+  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   Copyright guileschool.com\n");
+}
+
+void vAssertCalled( const char *pcFile, unsigned int ulLine )
+{
+  taskDISABLE_INTERRUPTS();
+  printf("\n\nAssertion failed in %s:%d\n", pcFile, ulLine); for(;;);
+}
+
+
+
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -263,6 +362,7 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
+	printf("[TASK] StartDefaultTask!\n");
   /* Infinite loop */
   for(;;)
   {
