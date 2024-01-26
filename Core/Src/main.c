@@ -23,7 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-
+#include "stm32f4xx.h"
+#include "stm32f4xx_it.h"
 
 
 
@@ -59,21 +60,11 @@
 UART_HandleTypeDef huart6;
 
 osThreadId defaultTaskHandle;
-
-
-
-
-
-
-
-
-
-
-
 /* USER CODE BEGIN PV */
 
 
-
+unsigned long  t1=0;
+unsigned long  t2=0;
 
 
 
@@ -125,6 +116,7 @@ int main(void)
 
   /* USER CODE BEGIN Init */
 
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -132,12 +124,24 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
+
+  InitTick(168000000, 1000000U);			//	Clock을 1us단위로 조정, 1ms함수 사용할 수 없음
+  //usDelay(1000);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET); 	// LED Off
+  osDelay(1);		// ms 단위, 정확하게 1ms 나오지 않음
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);	// LED On
+  t1 = DWT->CYCCNT;
+  osDelay(1);
+  t2 = DWT->CYCCNT;
+  printf("delay = %.2f\n",(float)(t2-t1)/CLOCK_PER_USEC);
+
 
   freertos_IntroTitle();
   printf("[TASK]main\n");
@@ -312,9 +316,7 @@ char* OSVersion(void)
 	return tskKERNEL_VERSION_NUMBER;
 }
 
-//
-// 'freertos_IntroTitle'
-//
+
 void freertos_IntroTitle(void)
 {
   printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] \n");
@@ -347,6 +349,17 @@ void vAssertCalled( const char *pcFile, unsigned int ulLine )
   printf("\n\nAssertion failed in %s:%d\n", pcFile, ulLine); for(;;);
 }
 
+
+void InitTick(uint32_t HCLKFrequency, uint32_t Ticks)
+{
+  /* Configure the SysTick to have interrupt in 1ms time base */
+  SysTick->LOAD  = (uint32_t)((HCLKFrequency / Ticks) - 1UL);  /* set reload register */
+  SysTick->VAL   = 0UL;                                       /* Load the SysTick Counter Value */
+  SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;                   /* Enable the Systick Timer */
+
+  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk; 				// 시간 측정 초기화
+  DWT->CYCCNT = 0;   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+}
 
 
 

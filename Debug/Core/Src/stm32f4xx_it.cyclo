@@ -4,5 +4,7 @@
 ../Core/Src/stm32f4xx_it.c:121:6:BusFault_Handler	1
 ../Core/Src/stm32f4xx_it.c:136:6:UsageFault_Handler	1
 ../Core/Src/stm32f4xx_it.c:151:6:DebugMon_Handler	1
-../Core/Src/stm32f4xx_it.c:164:6:SysTick_Handler	2
-../Core/Src/stm32f4xx_it.c:193:6:USART6_IRQHandler	3
+../Core/Src/stm32f4xx_it.c:164:6:SysTick_Handler	3
+../Core/Src/stm32f4xx_it.c:196:6:RCC_IRQHandler	1
+../Core/Src/stm32f4xx_it.c:209:6:USART6_IRQHandler	3
+../Core/Src/stm32f4xx_it.c:226:6:usDelay	2

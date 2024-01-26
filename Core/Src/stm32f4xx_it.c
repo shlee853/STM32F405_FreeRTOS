@@ -164,7 +164,10 @@ void DebugMon_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
+	if (TimingDelay != 0x00) {
 
+		TimingDelay--;
+	}
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
 #if (INCLUDE_xTaskGetSchedulerState == 1 )
@@ -188,6 +191,19 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles RCC global interrupt.
+  */
+void RCC_IRQHandler(void)
+{
+  /* USER CODE BEGIN RCC_IRQn 0 */
+
+  /* USER CODE END RCC_IRQn 0 */
+  /* USER CODE BEGIN RCC_IRQn 1 */
+
+  /* USER CODE END RCC_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART6 global interrupt.
   */
 void USART6_IRQHandler(void)
@@ -207,5 +223,20 @@ void USART6_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+void usDelay(unsigned int nTime)
+{
+	__IO unsigned int  tmp = SysTick->CTRL;
+	((void)tmp);
 
+	SysTick->VAL = 0;
+
+	SysTick->CTRL = SysTick->CTRL | SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk; // clock source
+
+	TimingDelay = nTime-1;
+
+	while(TimingDelay);
+
+	SysTick->CTRL = 0;
+
+}
 /* USER CODE END 1 */

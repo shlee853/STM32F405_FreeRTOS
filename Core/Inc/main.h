@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define CLOCK_PER_USEC 168
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
