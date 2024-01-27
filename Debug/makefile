@@ -15,7 +15,11 @@ RM := rm -rf
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
+-include Core/Src/Utils/subdir.mk
+-include Core/Src/Platform/subdir.mk
+-include Core/Src/Drivers/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/Lib/STM32F4xx_StdPeriph_Driver/src/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

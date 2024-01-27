@@ -1,0 +1,2 @@
+../Core/Src/Drivers/system.c:100:6:systemLaunch	24	static
+../Core/Src/Drivers/system.c:107:6:systemTask	24	static

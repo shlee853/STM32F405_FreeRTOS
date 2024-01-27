@@ -1,0 +1,2 @@
+../Core/Src/Platform/platform_cf2.c:62:25:platformGetListOfConfigurations	1
+../Core/Src/Platform/platform_cf2.c:70:13:platformConfigGetPlatformName	1

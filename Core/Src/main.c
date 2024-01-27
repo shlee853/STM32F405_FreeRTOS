@@ -29,6 +29,17 @@
 
 
 
+#include "FreeRTOSConfig.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "config.h"
+#include "platform.h"
+#include "system.h"
+#include "usec_time.h"
+#include "led.h"
+#include "stm32fxxx.h"
+
+
 
 
 
@@ -133,25 +144,44 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   InitTick(168000000, 1000000U);			//	Clock을 1us단위로 조정, 1ms함수 사용할 수 없음
+
+  __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
   //usDelay(1000);
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET); 	// LED Off
-  osDelay(1);		// ms 단위, 정확하게 1ms 나오지 않음
+  usDelay(1000);		// ms 단위, 정확하게 1ms 나오지 않음
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);	// LED On
   t1 = DWT->CYCCNT;
-  osDelay(1);
+  usDelay(1000);	// 1ms
   t2 = DWT->CYCCNT;
   printf("delay = %.2f\n",(float)(t2-t1)/CLOCK_PER_USEC);
 
+  t1 = DWT->CYCCNT;
+  vTaskDelay(1000);		// 1ms
+  t2 = DWT->CYCCNT;
+  printf("delay = %.2f\n",(float)(t2-t1)/CLOCK_PER_USEC);
 
   freertos_IntroTitle();
   printf("[TASK]main\n");
 
 
-  __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
+  check_enter_bootloader();
+
+  int err = platformInit();
+  if (err != 0) {
+  	    // The firmware is running on the wrong hardware. Halt
+  	    while(1);
+  }
 
 
+  ledInit();
+  ledSet(0, 1); vTaskDelay(1000);
+  ledSet(0, 0); vTaskDelay(1000);
+  ledSet(0, 1); vTaskDelay(1000);
+  ledSet(0, 0); vTaskDelay(1000);
+  ledSet(0, 1); vTaskDelay(1000);
+  ledSet(0, 0); vTaskDelay(1000);
 
-
+  systemLaunch();
 
 
 
@@ -175,12 +205,12 @@ int main(void)
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-//  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-//  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  USER_THREADS();
+//  USER_THREADS();
 
 
 
@@ -296,7 +326,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PC0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
