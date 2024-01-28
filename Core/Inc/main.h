@@ -29,9 +29,22 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 
+#include "stm32f4xx_ll_spi.h"
+#include "stm32f4xx_ll_bus.h"
+#include "stm32f4xx_ll_cortex.h"
+#include "stm32f4xx_ll_rcc.h"
+#include "stm32f4xx_ll_system.h"
+#include "stm32f4xx_ll_utils.h"
+#include "stm32f4xx_ll_pwr.h"
+#include "stm32f4xx_ll_gpio.h"
+#include "stm32f4xx_ll_dma.h"
+
+#include "stm32f4xx_ll_exti.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #define CLOCK_PER_USEC 168
+#define CLOCK_PER_MSEC 168000
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -57,6 +70,22 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define SPI1_NSS_PIN_Pin GPIO_PIN_4
+#define SPI1_NSS_PIN_GPIO_Port GPIOA
+#define SPI1_SCK_PIN_Pin GPIO_PIN_5
+#define SPI1_SCK_PIN_GPIO_Port GPIOA
+#define SPI1_MISO_PIN_Pin GPIO_PIN_6
+#define SPI1_MISO_PIN_GPIO_Port GPIOA
+#define SPI1_MOSI_PIN_Pin GPIO_PIN_7
+#define SPI1_MOSI_PIN_GPIO_Port GPIOA
+#define SPI1_INT_Pin GPIO_PIN_4
+#define SPI1_INT_GPIO_Port GPIOC
+#define UART6_TX_DEBUG_Pin GPIO_PIN_6
+#define UART6_TX_DEBUG_GPIO_Port GPIOC
+#define UART6_RX_DEBUG_Pin GPIO_PIN_7
+#define UART6_RX_DEBUG_GPIO_Port GPIOC
+#define LED_BLUE_Pin GPIO_PIN_5
+#define LED_BLUE_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

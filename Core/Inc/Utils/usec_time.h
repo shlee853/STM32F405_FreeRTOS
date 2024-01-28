@@ -30,7 +30,7 @@
 /**
  * Initialize microsecond-resolution timer (TIM1).
  */
-void usecTimerInit(void);
+void usecTimerInit(void);	// main에 HAL드라이버로 생성됨
 
 /**
  * Reset the microsecond-resolution timer to 0.

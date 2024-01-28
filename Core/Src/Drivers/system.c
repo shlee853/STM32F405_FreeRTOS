@@ -78,6 +78,10 @@
 //  #include "cpxlink.h"
 #endif
 
+
+#include"ICM20602.h"
+
+
 /* Private variable */
 static bool selftestPassed;
 static uint8_t dumpAssertInfo = 0;
@@ -86,6 +90,10 @@ static bool isInit;
 static char nrf_version[16];
 static uint8_t testLogParam;
 static uint8_t doAssert;
+
+
+unsigned long  time1=0;
+unsigned long  time2=0;
 
 STATIC_MEM_TASK_ALLOC(systemTask, SYSTEM_TASK_STACKSIZE);
 
@@ -106,21 +114,34 @@ void systemLaunch(void)
 
 void systemTask(void *arg)
 {
+
   bool pass = true;
 
+//  uint32_t ld = SysTick->LOAD;
+//  time1 = DWT->CYCCNT;
+//  usDelay(1000);	// 1ms
+//  time2 = DWT->CYCCNT;
+//  printf("delay = %.2f\n",(float)(time2-time1)/CLOCK_PER_USEC);
+
+
   ledInit();
-  ledSet(CHG_LED, 1);
+  ledSet(CHG_LED, SET);
+
 
 #ifdef CONFIG_DEBUG_QUEUE_MONITOR
 //  queueMonitorInit();
 #endif
 
-#ifdef CONFIG_DEBUG_PRINT_ON_UART1 // UART6 사용
-  MX_USART6_UART_Init();
-//  uart1Init(CONFIG_DEBUG_PRINT_ON_UART1_BAUDRATE);
+#ifdef CONFIG_DEBUG_PRINT_ON_UART1
+//  uart1Init(CONFIG_DEBUG_PRINT_ON_UART1_BAUDRATE); 	// main에서 생성
 #endif
 
+//  usecTimerInit(); 	// main에서 생성
+//  i2cdevInit(I2C3_DEV);
+//  i2cdevInit(I2C1_DEV);
+//  passthroughInit();
 
+  ICM20602_Initialization();
 
 }
 
