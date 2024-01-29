@@ -59,7 +59,7 @@
 //#include "crtp_mem.h"
 //#include "proximity.h"
 //#include "watchdog.h"
-//#include "queuemonitor.h"
+#include "queuemonitor.h"
 //#include "buzzer.h"
 //#include "sound.h"
 //#include "sysload.h"
@@ -79,7 +79,7 @@
 #endif
 
 
-#include"ICM20602.h"
+#include "ICM20602.h"
 
 
 /* Private variable */
@@ -110,6 +110,8 @@ void systemLaunch(void)
   STATIC_MEM_TASK_CREATE(systemTask, systemTask, SYSTEM_TASK_NAME, NULL, SYSTEM_TASK_PRI);
 }
 
+
+
 /* Private functions implementation */
 
 void systemTask(void *arg)
@@ -117,11 +119,11 @@ void systemTask(void *arg)
 
   bool pass = true;
 
-//  uint32_t ld = SysTick->LOAD;
-//  time1 = DWT->CYCCNT;
-//  usDelay(1000);	// 1ms
-//  time2 = DWT->CYCCNT;
-//  printf("delay = %.2f\n",(float)(time2-time1)/CLOCK_PER_USEC);
+  uint32_t ld = SysTick->LOAD;
+  time1 = DWT->CYCCNT;
+  delay_us(10);	// 1ms
+  time2 = DWT->CYCCNT;
+  printf("delay = %.2f(us)\n",(float)(time2-time1)/CLOCK_PER_USEC);
 
 
   ledInit();
@@ -129,7 +131,7 @@ void systemTask(void *arg)
 
 
 #ifdef CONFIG_DEBUG_QUEUE_MONITOR
-//  queueMonitorInit();
+  queueMonitorInit();
 #endif
 
 #ifdef CONFIG_DEBUG_PRINT_ON_UART1

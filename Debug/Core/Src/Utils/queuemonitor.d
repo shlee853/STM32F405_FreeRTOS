@@ -1,4 +1,5 @@
-Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
+Core/Src/Utils/queuemonitor.o: ../Core/Src/Utils/queuemonitor.c \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -6,11 +7,12 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -52,16 +54,8 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -69,11 +63,12 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -116,13 +111,4 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h:

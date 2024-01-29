@@ -9,6 +9,7 @@
 "./Core/Src/Utils/cfassert.o"
 "./Core/Src/Utils/debug.o"
 "./Core/Src/Utils/eprintf.o"
+"./Core/Src/Utils/queuemonitor.o"
 "./Core/Src/Utils/usec_time.o"
 "./Core/Src/debug_printf.o"
 "./Core/Src/freertos.o"

@@ -162,10 +162,10 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim7);
   t1 = DWT->CYCCNT;
   //  delay_us(1);	// 1ms
-  HAL_Delay(1);	// 1ms
+  delay_us(10);	// 1ms
   t2 = DWT->CYCCNT;
   HAL_TIM_Base_Stop_IT(&htim7);
-  printf("delay = %.2f\n",(float)(t2-t1)/CLOCK_PER_USEC);
+  printf("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
   uint32_t ld = SysTick->LOAD;
 
 

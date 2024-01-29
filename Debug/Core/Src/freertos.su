@@ -1,1 +1,6 @@
-../Core/Src/freertos.c:62:6:vApplicationGetIdleTaskMemory	24	static
+../Core/Src/freertos.c:69:13:configureTimerForRunTimeStats	4	static
+../Core/Src/freertos.c:74:22:getRunTimeCounterValue	4	static
+../Core/Src/freertos.c:81:13:vApplicationIdleHook	4	static
+../Core/Src/freertos.c:96:13:vApplicationStackOverflowHook	16	static
+../Core/Src/freertos.c:108:6:vApplicationGetIdleTaskMemory	24	static
+../Core/Src/freertos.c:121:6:vApplicationGetTimerTaskMemory	24	static
