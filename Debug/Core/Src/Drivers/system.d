@@ -11,6 +11,7 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -52,10 +53,11 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
@@ -74,6 +76,7 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -116,10 +119,11 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:

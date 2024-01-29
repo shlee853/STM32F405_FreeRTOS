@@ -3,6 +3,7 @@
 "./Core/Src/Drivers/bootloader.o"
 "./Core/Src/Drivers/led.o"
 "./Core/Src/Drivers/system.o"
+"./Core/Src/Drivers/vcp_esc_passthrough.o"
 "./Core/Src/Platform/platform.o"
 "./Core/Src/Platform/platform_cf2.o"
 "./Core/Src/Platform/platform_stm32f4.o"

@@ -54,6 +54,7 @@ Core/Src/Utils/queuemonitor.o: ../Core/Src/Utils/queuemonitor.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -111,4 +112,5 @@ Core/Src/Utils/queuemonitor.o: ../Core/Src/Utils/queuemonitor.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:

@@ -1,1 +1,8 @@
-../Core/Src/debug_printf.c:10:5:_write	2
+../Core/Src/debug_printf.c:41:5:UART_PRINTF	2
+../Core/Src/debug_printf.c:51:6:uartInit	1
+../Core/Src/debug_printf.c:56:6:uartSendData	3
+../Core/Src/debug_printf.c:68:5:uartPutchar	1
+../Core/Src/debug_printf.c:75:6:uartGetchar	1
+../Core/Src/debug_printf.c:81:10:uartbytesAvailable	1
+../Core/Src/debug_printf.c:86:10:uartQueueMaxLength	1
+../Core/Src/debug_printf.c:91:6:uartDidOverrun	1

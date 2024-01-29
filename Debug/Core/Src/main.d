@@ -63,6 +63,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -129,4 +131,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h:

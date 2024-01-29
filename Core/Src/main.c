@@ -38,6 +38,7 @@
 #include "usec_time.h"
 #include "led.h"
 #include "stm32fxxx.h"
+#include "debug.h"
 
 
 
@@ -57,7 +58,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-
+#define DEBUG_MODULE "MAIN"
 
 
 
@@ -148,7 +149,7 @@ int main(void)
   __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
 
   freertos_IntroTitle();
-  printf("[TASK]main\n");
+  DEBUG_PRINT("[TASK]main\n");
 
 
   check_enter_bootloader();
@@ -165,7 +166,7 @@ int main(void)
   delay_us(10);	// 1ms
   t2 = DWT->CYCCNT;
   HAL_TIM_Base_Stop_IT(&htim7);
-  printf("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
+  DEBUG_PRINT("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
   uint32_t ld = SysTick->LOAD;
 
 
@@ -447,34 +448,34 @@ char* OSVersion(void)
 
 void freertos_IntroTitle(void)
 {
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] \n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                     \n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                      \n");
-  printf("]        ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]      :]]]        ]   .]]]].    :]]]]:  \n");
-  printf("]        ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]       ]]]       ]]   ]]]]]]   :]]]]]]  \n");
-  printf("]  ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]  ]]]:  ]]]]]        :]]  ]]:  ]]:  :]  \n");
-  printf("]  ]]]]]]]]]  .    ]]].    :]]]].    :]]]  ]]]]  ]]]]]  ]     ]]:  :]]  ]]       \n");
-  printf("]  ]]]]]]]]]       ]].      :]].      :]]  ]]]:  ]]]]] ]]     ]]    ]]  ]]]:     \n");
-  printf("]       ]]]]   .]]]]]  :]]:  ]]  :]]:  ]]       :]]]]  ]]     ]]    ]]  :]]]]]:  \n");
-  printf("]       ]]]]  ]]]]]]]        ]]        ]]      ]]]]]   ]]     ]]    ]]   .]]]]]: \n");
-  printf("]  ]]]]]]]]]  ]]]]]]]        ]]        ]]  ]]]  .]]    ]]     ]]    ]]      :]]] \n");
-  printf("]  ]]]]]]]]]  ]]]]]]]  ]]]]]]]]  ]]]]]]]]  ]]]  ]]     ]]     ]]:  :]]        ]] \n");
-  printf("]  ]]]]]]]]]  ]]]]]]]   .]]: ]]   .]]: ]]  ]]]:        ]]     :]]  ]]:  ]:.  :]] \n");
-  printf("]  ]]]]]]]]]  ]]]]]]].       ]].       ]]  ]]]]  ]:    ]]      ]]]]]]   ]]]]]]]: \n");
-  printf("]  ]]]]]]]]]  ]]]]]]]].     :]]].     :]]  ]]]] ]]]    ]]      .]]]].   .]]]]]:  \n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                                   \n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                                    \n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   The Real Time Kernel \n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]     FreeRTOS version %s\n", OSVersion());
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
-  printf("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   Copyright guileschool.com\n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] \n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                     \n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                      \n");
+  DEBUG_PRINT("]        ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]      :]]]        ]   .]]]].    :]]]]:  \n");
+  DEBUG_PRINT("]        ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]       ]]]       ]]   ]]]]]]   :]]]]]]  \n");
+  DEBUG_PRINT("]  ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]  ]]]:  ]]]]]        :]]  ]]:  ]]:  :]  \n");
+  DEBUG_PRINT("]  ]]]]]]]]]  .    ]]].    :]]]].    :]]]  ]]]]  ]]]]]  ]     ]]:  :]]  ]]       \n");
+  DEBUG_PRINT("]  ]]]]]]]]]       ]].      :]].      :]]  ]]]:  ]]]]] ]]     ]]    ]]  ]]]:     \n");
+  DEBUG_PRINT("]       ]]]]   .]]]]]  :]]:  ]]  :]]:  ]]       :]]]]  ]]     ]]    ]]  :]]]]]:  \n");
+  DEBUG_PRINT("]       ]]]]  ]]]]]]]        ]]        ]]      ]]]]]   ]]     ]]    ]]   .]]]]]: \n");
+  DEBUG_PRINT("]  ]]]]]]]]]  ]]]]]]]        ]]        ]]  ]]]  .]]    ]]     ]]    ]]      :]]] \n");
+  DEBUG_PRINT("]  ]]]]]]]]]  ]]]]]]]  ]]]]]]]]  ]]]]]]]]  ]]]  ]]     ]]     ]]:  :]]        ]] \n");
+  DEBUG_PRINT("]  ]]]]]]]]]  ]]]]]]]   .]]: ]]   .]]: ]]  ]]]:        ]]     :]]  ]]:  ]:.  :]] \n");
+  DEBUG_PRINT("]  ]]]]]]]]]  ]]]]]]].       ]].       ]]  ]]]]  ]:    ]]      ]]]]]]   ]]]]]]]: \n");
+  DEBUG_PRINT("]  ]]]]]]]]]  ]]]]]]]].     :]]].     :]]  ]]]] ]]]    ]]      .]]]].   .]]]]]:  \n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                                   \n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]                                    \n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   The Real Time Kernel \n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]     FreeRTOS version %s\n", OSVersion());
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   Copyright guileschool.com\n");
 }
 
 void vAssertCalled( const char *pcFile, unsigned int ulLine )
 {
   taskDISABLE_INTERRUPTS();
-  printf("\n\nAssertion failed in %s:%d\n", pcFile, ulLine); for(;;);
+  DEBUG_PRINT("\n\nAssertion failed in %s:%d\n", pcFile, ulLine); for(;;);
 }
 
 
@@ -510,7 +511,7 @@ void delay_us (uint16_t us)
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
-	printf("[TASK] StartDefaultTask!\n");
+	DEBUG_PRINT("[TASK] StartDefaultTask!\n");
   /* Infinite loop */
   for(;;)
   {

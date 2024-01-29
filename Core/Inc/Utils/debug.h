@@ -26,13 +26,15 @@
 
 #pragma once
 
+#include <stdbool.h>
 #include "config.h"
 //#include "console.h"
 #include "autoconf.h"
+#include "eprintf.h"
 
-#ifdef CONFIG_DEBUG_PRINT_ON_UART1
-//  #include "uart1.h"
-  #define uartPrintf uart1Printf
+
+#ifdef CONFIG_DEBUG_PRINT_ON_UART
+
 #endif
 
 #ifdef DEBUG_PRINT_ON_SEGGER_RTT
@@ -47,15 +49,17 @@
 #define DEBUG_FMT(fmt) fmt
 #endif
 
-void debugInit(void);
+
 
 #if defined(UNIT_TEST_MODE)
   #include <stdio.h>
   #define DEBUG_PRINT(fmt, ...) printf(DEBUG_FMT(fmt), ##__VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) printf(DEBUG_FMT(fmt), ##__VA_ARGS__)
-#elif defined(CONFIG_DEBUG_PRINT_ON_UART1)
+
+#elif defined(CONFIG_DEBUG_PRINT_ON_UART)
   #define DEBUG_PRINT(fmt, ...) uartPrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) uartPrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
+
 #elif defined(DEBUG_PRINT_ON_SWO)
   #define DEBUG_PRINT(fmt, ...) eprintf(ITM_SendChar, fmt, ## __VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) eprintf(ITM_SendChar, fmt, ## __VA_ARGS__)
@@ -63,8 +67,8 @@ void debugInit(void);
   #define DEBUG_PRINT(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
 #else // Debug using radio or USB
-  #define DEBUG_PRINT(fmt, ...) consolePrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
-  #define DEBUG_PRINT_OS(fmt, ...) consolePrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
+//  #define DEBUG_PRINT(fmt, ...) consolePrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
+//  #define DEBUG_PRINT_OS(fmt, ...) consolePrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
   //#define DEBUG_PRINT(fmt, ...)
 #endif
 
@@ -82,3 +86,18 @@ void debugInit(void);
   #define TEST_AND_PRINT(e, msgOK, msgFail)
   #define FAIL_PRINT(msg)
 #endif
+
+
+void debugInit(void);
+
+void uart1Init(void);
+int uartPutchar(int ch);
+void uartGetchar(char * ch);
+uint32_t uartbytesAvailable(void);
+uint32_t uartQueueMaxLength(void);
+bool uartDidOverrun(void);
+void uartSendData(uint32_t size, uint8_t* data);
+#define uartPrintf(FMT, ...) eprintf(uartPutchar, FMT, ## __VA_ARGS__);
+
+int UART_PRINTF(int file, char* p, int len);	// printf
+

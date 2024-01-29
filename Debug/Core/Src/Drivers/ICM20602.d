@@ -37,7 +37,13 @@ Core/Src/Drivers/ICM20602.o: ../Core/Src/Drivers/ICM20602.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -78,3 +84,9 @@ Core/Src/Drivers/ICM20602.o: ../Core/Src/Drivers/ICM20602.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:

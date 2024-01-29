@@ -21,6 +21,7 @@
  */
 
 #include "ICM20602.h"
+#include "debug.h"
 
 Struct_ICM20602 ICM20602;
 int32_t gyro_x_offset, gyro_y_offset, gyro_z_offset; // To remove offset
@@ -155,7 +156,7 @@ int ICM20602_Initialization(void)
 	
 	ICM20602_GPIO_SPI_Initialization();
 	
-	printf("Checking ICM20602...");
+	DEBUG_PRINT("Checking ICM20602...");
 	
 	// check WHO_AM_I (0x75)
 	who_am_i = ICM20602_Readbyte(WHO_AM_I); 
@@ -163,7 +164,7 @@ int ICM20602_Initialization(void)
 	// who am i = 0x12
 	if(who_am_i == 0x12)
 	{
-		printf("\r\nICM20602 who_am_i = 0x%02x...OK\n\n", who_am_i);
+		DEBUG_PRINT("\r\nICM20602 who_am_i = 0x%02x...OK\n\n", who_am_i);
 	}
 	// recheck
 	else if(who_am_i != 0x12)
@@ -171,7 +172,7 @@ int ICM20602_Initialization(void)
 		who_am_i = ICM20602_Readbyte(WHO_AM_I); // check again WHO_AM_I (0x75)
 
 		if (who_am_i != 0x12){
-			printf( "ICM20602 Not OK: 0x%02x Should be 0x%02x\n", who_am_i, 0x12);
+			DEBUG_PRINT( "ICM20602 Not OK: 0x%02x Should be 0x%02x\n", who_am_i, 0x12);
 			return 1; //ERROR
 		}
 	}
@@ -216,7 +217,7 @@ int ICM20602_Initialization(void)
 	ICM20602_Writebyte(INT_ENABLE, 0x01); // Enable DRDY Interrupt
 	HAL_Delay(50);;
 	
-	//printf("gyro bias: %d %d %d\n", gyro_x_offset, gyro_y_offset, gyro_z_offset);
+	//DEBUG_PRINT("gyro bias: %d %d %d\n", gyro_x_offset, gyro_y_offset, gyro_z_offset);
 	
 	// Remove Gyro X offset
 //	ICM20602_Writebyte( XG_OFFS_USRH, offset_x>>8 );	// gyro x offset high byte
