@@ -24,6 +24,7 @@
 #include "task.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "debug.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,7 +64,10 @@ unsigned int TimingDelay;
 
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim7;
+extern DMA_HandleTypeDef hdma_usart6_tx;
 extern UART_HandleTypeDef huart6;
+extern xSemaphoreHandle waitUntilSendDone;
+extern xQueueHandle uartqueue;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -219,16 +223,40 @@ void TIM7_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles DMA2 stream6 global interrupt.
+  */
+void DMA2_Stream6_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream6_IRQn 0 */
+  xSemaphoreTakeFromISR(waitUntilSendDone, portMAX_DELAY);
+
+  portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+  __HAL_DMA_CLEAR_FLAG(&hdma_usart6_tx, DMA_FLAG_TCIF2_6);
+  __HAL_DMA_DISABLE(&hdma_usart6_tx);
+  xSemaphoreGiveFromISR(waitUntilSendDone, &xHigherPriorityTaskWoken);
+  portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+  /* USER CODE END DMA2_Stream6_IRQn 0 */
+
+
+  HAL_DMA_IRQHandler(&hdma_usart6_tx);
+  /* USER CODE BEGIN DMA2_Stream6_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream6_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART6 global interrupt.
   */
 void USART6_IRQHandler(void)
 {
   /* USER CODE BEGIN USART6_IRQn 0 */
 	if((__HAL_UART_GET_FLAG(&huart6, UART_FLAG_RXNE)!=RESET)&&(__HAL_UART_GET_IT_SOURCE(&huart6, UART_IT_RXNE)!=RESET) ){
-			g_rx_buffer = (uint8_t)(huart6.Instance->DR & (uint8_t)0x00FF);	// 데이터 1바이트 수신
-		  __HAL_UART_CLEAR_PEFLAG(&huart6);
+		portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+		g_rx_buffer = (uint8_t)(huart6.Instance->DR & (uint8_t)0x00FF);	// 데이터 1바이트 수신
+	  __HAL_UART_CLEAR_PEFLAG(&huart6);
+		xQueueSendFromISR(uartqueue, &g_rx_buffer, &xHigherPriorityTaskWoken);	// Queue에서 멈춤
+		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 	}
-
 
   /* USER CODE END USART6_IRQn 0 */
   HAL_UART_IRQHandler(&huart6);

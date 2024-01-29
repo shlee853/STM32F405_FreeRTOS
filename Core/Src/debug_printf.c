@@ -6,33 +6,27 @@
 
 #include "stm32fxxx.h"
 
-/*FreeRtos includes*/
-#include "FreeRTOS.h"
-#include "queue.h"
-#include "semphr.h"
-#include "config.h"
-#include "cfassert.h"
-#include "config.h"
-#include "static_mem.h"
-
-
 #define QUEUE_LENGTH 64
-static xQueueHandle uartqueue;
+xQueueHandle uartqueue;
 STATIC_MEM_QUEUE_ALLOC(uartqueue, QUEUE_LENGTH, sizeof(uint8_t));
+
+//#define ENABLE_UART_DMA
+xSemaphoreHandle uartBusy;
+StaticSemaphore_t uartBusyBuffer;
+xSemaphoreHandle waitUntilSendDone;
+StaticSemaphore_t waitUntilSendDoneBuffer;
+//	static DMA_HandleTypeDef DMA_InitStructureShare;
+extern DMA_HandleTypeDef hdma_usart6_tx;
+static uint8_t dmaBuffer[64];
+static bool    isUartDmaInitialized;
+static uint32_t initialDMACount;
+
+
 
 static bool isInit = false;
 static bool hasOverrun = false;
 
-#ifdef ENABLE_uart_DMA
-static xSemaphoreHandle uartBusy;
-static StaticSemaphore_t uartBusyBuffer;
-static xSemaphoreHandle waitUntilSendDone;
-static StaticSemaphore_t waitUntilSendDoneBuffer;
-static DMA_InitTypeDef DMA_InitStructureShare;
-static uint8_t dmaBuffer[64];
-static bool    isUartDmaInitialized;
-static uint32_t initialDMACount;
-#endif
+
 
 
 extern UART_HandleTypeDef huart6;
@@ -49,8 +43,52 @@ int UART_PRINTF(int file, char* p, int len)
 
 
 void uartInit(void) {
-	  isInit = true;
+	uartqueue = STATIC_MEM_QUEUE_CREATE(uartqueue);
+    isInit = true;
 }
+
+
+
+void uartDmaInit(void)
+{
+
+  // initialize the FreeRTOS structures first, to prevent null pointers in interrupts
+  waitUntilSendDone = xSemaphoreCreateBinaryStatic(&waitUntilSendDoneBuffer); // initialized as blocking
+  uartBusy = xSemaphoreCreateBinaryStatic(&uartBusyBuffer); // initialized as blocking
+  xSemaphoreGive(uartBusy); // but we give it because the uart isn't busy at initialization
+  xSemaphoreGive(waitUntilSendDone);
+
+  __HAL_RCC_DMA2_CLK_ENABLE();
+  HAL_DMA_Init(&hdma_usart6_tx);
+  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
+
+  isUartDmaInitialized = true;
+
+}
+
+
+void uartSendDataDmaBlocking(uint32_t size, uint8_t* data)
+{
+  if (isUartDmaInitialized)
+  {
+    xSemaphoreTake(uartBusy, portMAX_DELAY);
+    // Wait for DMA to be free
+//    while(HAL_DMA_GetState(&hdma_usart6_tx) != HAL_DMA_STATE_READY);
+    //Copy data in DMA buffer
+    memcpy(dmaBuffer, data, size);
+    initialDMACount = size;
+    if(HAL_UART_Transmit_DMA(&huart6, dmaBuffer, size)!=HAL_OK){
+    	DEBUG_PRINT("DMA transfer failed\n");
+    }
+
+    xSemaphoreGive(uartBusy);
+  }
+}
+
+
+
+
 
 
 void uartSendData(uint32_t size, uint8_t* data)

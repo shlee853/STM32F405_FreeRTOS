@@ -55,7 +55,14 @@ Core/Src/Utils/cfassert.o: ../Core/Src/Utils/cfassert.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -113,3 +120,10 @@ Core/Src/Utils/cfassert.o: ../Core/Src/Utils/cfassert.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:

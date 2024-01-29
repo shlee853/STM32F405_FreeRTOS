@@ -32,9 +32,19 @@
 #include "autoconf.h"
 #include "eprintf.h"
 
+/*FreeRtos includes*/
+#include "FreeRTOS.h"
+#include "queue.h"
+#include "semphr.h"
+#include "config.h"
+#include "cfassert.h"
+#include "config.h"
+#include "static_mem.h"
+
+
 
 #ifdef CONFIG_DEBUG_PRINT_ON_UART
-
+	#define uartPrintf(FMT, ...) eprintf(uartPutchar, FMT, ## __VA_ARGS__);
 #endif
 
 #ifdef DEBUG_PRINT_ON_SEGGER_RTT
@@ -88,16 +98,20 @@
 #endif
 
 
-void debugInit(void);
 
-void uart1Init(void);
+
+
+void debugInit(void);
+void uartDmaInit(void);
+
+void uartInit(void);
 int uartPutchar(int ch);
 void uartGetchar(char * ch);
 uint32_t uartbytesAvailable(void);
 uint32_t uartQueueMaxLength(void);
 bool uartDidOverrun(void);
 void uartSendData(uint32_t size, uint8_t* data);
-#define uartPrintf(FMT, ...) eprintf(uartPutchar, FMT, ## __VA_ARGS__);
+void uartSendDataDmaBlocking(uint32_t size, uint8_t* data);
 
 int UART_PRINTF(int file, char* p, int len);	// printf
 

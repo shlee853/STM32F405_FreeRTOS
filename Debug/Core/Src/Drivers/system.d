@@ -55,13 +55,13 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -121,12 +121,12 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h:

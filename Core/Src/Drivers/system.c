@@ -168,6 +168,15 @@ void systemInit(void)
   canStartMutex = xSemaphoreCreateMutexStatic(&canStartMutexBuffer);
   xSemaphoreTake(canStartMutex, portMAX_DELAY);
 
+
+  uartInit();
+  uartDmaInit();
+
+  while(1);
+//  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
+//  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
+
+
 //  usblinkInit();
 //  sysLoadInit();
 #if CONFIG_ENABLE_CPX
