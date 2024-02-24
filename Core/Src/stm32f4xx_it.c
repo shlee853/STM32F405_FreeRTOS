@@ -50,6 +50,11 @@ uint8_t rx_buf[256];		// Rx 수신데이터 버퍼
 uint8_t rx_cnt = 0;
 
 unsigned int TimingDelay;
+
+
+extern xQueueHandle uartqueue;
+extern xSemaphoreHandle waitUntilSendDone;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,11 +68,10 @@ unsigned int TimingDelay;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
 extern TIM_HandleTypeDef htim7;
 extern DMA_HandleTypeDef hdma_usart6_tx;
 extern UART_HandleTypeDef huart6;
-extern xSemaphoreHandle waitUntilSendDone;
-extern xQueueHandle uartqueue;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -223,6 +227,20 @@ void TIM7_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles USB On The Go FS global interrupt.
+  */
+void OTG_FS_IRQHandler(void)
+{
+  /* USER CODE BEGIN OTG_FS_IRQn 0 */
+
+  /* USER CODE END OTG_FS_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_OTG_FS);
+  /* USER CODE BEGIN OTG_FS_IRQn 1 */
+
+  /* USER CODE END OTG_FS_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA2 stream6 global interrupt.
   */
 void DMA2_Stream6_IRQHandler(void)
@@ -236,8 +254,6 @@ void DMA2_Stream6_IRQHandler(void)
   xSemaphoreGiveFromISR(waitUntilSendDone, &xHigherPriorityTaskWoken);
   portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
   /* USER CODE END DMA2_Stream6_IRQn 0 */
-
-
   HAL_DMA_IRQHandler(&hdma_usart6_tx);
   /* USER CODE BEGIN DMA2_Stream6_IRQn 1 */
 

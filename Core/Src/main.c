@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -103,7 +104,6 @@ void freertos_IntroTitle(void);
 
 
 
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -147,7 +147,7 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
-//  InitTick(168000000, 1000000U);			//	Clock을 1us단위로 조정, 1ms함수 사용할 수 없음
+//  InitTick(72000000, 1000000U);			//	Clock을 1us단위로 조정, 1ms함수 사용할 수 없음
 
   __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
 
@@ -165,12 +165,13 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim7);
   t1 = DWT->CYCCNT;
-  //  delay_us(1);	// 1ms
-  delay_us(10);	// 1ms
+  delay_us(1000);	// 1ms
+//  usDelay(10);
+//  HAL_Delay(1);
   t2 = DWT->CYCCNT;
   HAL_TIM_Base_Stop_IT(&htim7);
   DEBUG_PRINT("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
-  uint32_t ld = SysTick->LOAD;
+//  uint32_t ld = SysTick->LOAD;
 
 
   systemLaunch();
@@ -218,6 +219,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -245,9 +247,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 168;
+  RCC_OscInitStruct.PLL.PLLN = 72;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
+  RCC_OscInitStruct.PLL.PLLQ = 3;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -259,10 +261,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -341,7 +343,7 @@ static void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 83;
+  htim7.Init.Prescaler = 71;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim7.Init.Period = 65535;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -488,7 +490,7 @@ void freertos_IntroTitle(void)
   DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
   DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]     FreeRTOS version %s\n", OSVersion());
   DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
-  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]   Copyright guileschool.com\n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
 }
 
 void vAssertCalled( const char *pcFile, unsigned int ulLine )
@@ -529,6 +531,8 @@ void delay_us (uint16_t us)
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
+  /* init code for USB_DEVICE */
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
 	DEBUG_PRINT("[TASK] StartDefaultTask!\n");
   /* Infinite loop */

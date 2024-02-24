@@ -43,8 +43,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define CLOCK_PER_USEC 168
-#define CLOCK_PER_MSEC 168000
+#define CLOCK_PER_USEC 72   //168
+#define CLOCK_PER_MSEC 72000 //168000
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

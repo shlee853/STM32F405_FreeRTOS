@@ -180,42 +180,42 @@ int ICM20602_Initialization(void)
 	// Reset ICM20602
 	// PWR_MGMT_1 0x6B
 	ICM20602_Writebyte(PWR_MGMT_1, 0x80); //Reset ICM20602
-	HAL_Delay(50);
+	delay_us(50000);
 
 	// PWR_MGMT_1 0x6B
 	ICM20602_Writebyte(PWR_MGMT_1, 0x01); // Enable Temperature sensor(bit4-0), Use PLL(bit2:0-01)
 									// 온도센서 끄면 자이로 값 이상하게 출력됨
-	HAL_Delay(50);;
+	delay_us(50000);
 
 	// PWR_MGMT_2 0x6C
 	//ICM20602_Writebyte(PWR_MGMT_2, 0x38); // Disable Acc(bit5:3-111), Enable Gyro(bit2:0-000)
 	ICM20602_Writebyte( PWR_MGMT_2, 0x00 ); // Enable Acc(bit5:3-000), Enable Gyro(bit2:0-000)
-	HAL_Delay(50);;
-	
+	delay_us(50000);
+
 	// set sample rate to 1000Hz and apply a software filter
 	ICM20602_Writebyte(SMPLRT_DIV, 0x00);
-	HAL_Delay(50);;
+	delay_us(50000);
 	
 	// Gyro DLPF Config
 //	ICM20602_Writebyte(CONFIG, 0x00); // Gyro LPF fc 250Hz(bit2:0-000)
 	ICM20602_Writebyte(CONFIG, 0x05); // Gyro LPF fc 20Hz(bit2:0-100) at 1kHz sample rate
-	HAL_Delay(50);;
+	delay_us(50000);
 
 	// GYRO_CONFIG 0x1B
 	ICM20602_Writebyte(GYRO_CONFIG, 0x18); // Gyro sensitivity 2000 dps(bit4:3-11), FCHOICE (bit1:0-00)
-	HAL_Delay(50);;
+	delay_us(50000);
 
 	// ACCEL_CONFIG 0x1C
 	ICM20602_Writebyte(ACCEL_CONFIG, 0x18); // Acc sensitivity 16g
-	HAL_Delay(50);;
+	delay_us(50000);
 	
 	// ACCEL_CONFIG2 0x1D
 	ICM20602_Writebyte(ACCEL_CONFIG2, 0x03); // Acc FCHOICE 1kHz(bit3-0), DLPF fc 44.8Hz(bit2:0-011)
-	HAL_Delay(50);;
+	delay_us(50000);
 	
 	// Enable Interrupts when data is ready
 	ICM20602_Writebyte(INT_ENABLE, 0x01); // Enable DRDY Interrupt
-	HAL_Delay(50);;
+	delay_us(50000);
 	
 	//DEBUG_PRINT("gyro bias: %d %d %d\n", gyro_x_offset, gyro_y_offset, gyro_z_offset);
 	

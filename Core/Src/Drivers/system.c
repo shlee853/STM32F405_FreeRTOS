@@ -95,6 +95,12 @@ static uint8_t doAssert;
 unsigned long  time1=0;
 unsigned long  time2=0;
 
+
+#define BUF_SIZE 30
+uint8_t usb_buf[BUF_SIZE];
+uint32_t count=0;
+
+
 STATIC_MEM_TASK_ALLOC(systemTask, SYSTEM_TASK_STACKSIZE);
 
 /* System wide synchronisation */
@@ -123,7 +129,7 @@ void systemTask(void *arg)
   time1 = DWT->CYCCNT;
   delay_us(10);	// 1ms
   time2 = DWT->CYCCNT;
-  printf("delay = %.2f(us)\n",(float)(time2-time1)/CLOCK_PER_USEC);
+  DEBUG_PRINT("delay = %.2f(us)\n",(float)(time2-time1)/CLOCK_PER_USEC);
 
 
   ledInit();
@@ -134,7 +140,14 @@ void systemTask(void *arg)
   queueMonitorInit();
 #endif
 
-  ICM20602_Initialization();
+#ifdef CONFIG_DEBUG_QUEUE_MONITOR
+  uartInit();
+  uartDmaInit();
+  //  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
+  //  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
+#endif
+
+  ICM20602_Initialization();	// 여기서 일정 시간 지연이 있어야 STM32 VCP 포트가 활성화됨 원인파악중
 
   passthroughInit();	// Create passthrough task
 
@@ -169,14 +182,6 @@ void systemInit(void)
   xSemaphoreTake(canStartMutex, portMAX_DELAY);
 
 
-  uartInit();
-  uartDmaInit();
-
-  while(1);
-//  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
-//  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
-
-
 //  usblinkInit();
 //  sysLoadInit();
 #if CONFIG_ENABLE_CPX
@@ -189,6 +194,15 @@ void systemInit(void)
 //  consoleInit();
 
   DEBUG_PRINT("----------------------------\n");
+
+/*  while(1) {
+	  sprintf(usb_buf, "USB CDC TEST %d\r\n", count);
+	  CDC_Transmit_FS(usb_buf, BUF_SIZE);
+	  delay_us(1000);
+	  memset(usb_buf,0,BUF_SIZE);
+	  count++;
+  }
+*/
 //  DEBUG_PRINT("%s is up and running!\n", platformConfigGetDeviceTypeName());
 
 /*  if (V_PRODUCTION_RELEASE) {
