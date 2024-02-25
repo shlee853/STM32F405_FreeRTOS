@@ -1,0 +1,2 @@
+../Core/Src/Drivers/usblink.c:70:13:usblinkTask	1
+../Core/Src/Drivers/usblink.c:125:6:usblinkInit	2

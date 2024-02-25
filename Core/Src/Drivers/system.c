@@ -181,8 +181,7 @@ void systemInit(void)
   canStartMutex = xSemaphoreCreateMutexStatic(&canStartMutexBuffer);
   xSemaphoreTake(canStartMutex, portMAX_DELAY);
 
-
-//  usblinkInit();
+  usblinkInit();
 //  sysLoadInit();
 #if CONFIG_ENABLE_CPX
 //  cpxlinkInit();
@@ -195,6 +194,7 @@ void systemInit(void)
 
   DEBUG_PRINT("----------------------------\n");
 
+// USB CDC Test Code
 /*  while(1) {
 	  sprintf(usb_buf, "USB CDC TEST %d\r\n", count);
 	  CDC_Transmit_FS(usb_buf, BUF_SIZE);
@@ -202,7 +202,8 @@ void systemInit(void)
 	  memset(usb_buf,0,BUF_SIZE);
 	  count++;
   }
-*/
+  */
+
 //  DEBUG_PRINT("%s is up and running!\n", platformConfigGetDeviceTypeName());
 
 /*  if (V_PRODUCTION_RELEASE) {

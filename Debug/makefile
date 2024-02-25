@@ -22,6 +22,7 @@ RM := rm -rf
 -include Core/Src/Utils/subdir.mk
 -include Core/Src/Platform/subdir.mk
 -include Core/Src/Drivers/subdir.mk
+-include Core/Src/Comms/subdir.mk
 -include Core/Src/subdir.mk
 -include Core/Lib/STM32F4xx_StdPeriph_Driver/src/subdir.mk
 -include objects.mk
