@@ -152,7 +152,7 @@ int main(void)
   __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
 
   freertos_IntroTitle();
-  DEBUG_PRINT("[TASK]main\n");
+
 
 
   check_enter_bootloader();
@@ -165,9 +165,10 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim7);
   t1 = DWT->CYCCNT;
-  delay_us(1000);	// 1ms
+  delay_us(1000);	// 1002 us
+//  vTaskDelay(1);	// 입력값에 상관없이 약 7us, 정상적인 동작 안됨
 //  usDelay(10);
-//  HAL_Delay(1);
+//  HAL_Delay(1);		// 1350 us
   t2 = DWT->CYCCNT;
   HAL_TIM_Base_Stop_IT(&htim7);
   DEBUG_PRINT("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
@@ -533,7 +534,7 @@ void StartDefaultTask(void const * argument)
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
-	DEBUG_PRINT("[TASK] StartDefaultTask!\n");
+	DEBUG_PRINT("[TASK] StartDefaultTask is running!\n");
   /* Infinite loop */
   for(;;)
   {

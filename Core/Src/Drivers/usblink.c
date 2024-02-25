@@ -42,6 +42,7 @@
 #include "static_mem.h"
 
 #include "usb.h"
+#include "debug.h"
 
 static bool isInit = false;
 static xQueueHandle crtpPacketDelivery;

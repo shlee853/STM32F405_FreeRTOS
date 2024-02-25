@@ -1,4 +1,15 @@
-Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
+Core/Src/Utils/sysload.o: ../Core/Src/Utils/sysload.c \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -43,38 +54,27 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/configblock.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../Core/Inc/FreeRTOSConfig.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usb.h \
- ../USB_DEVICE/Target/usbd_conf.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/sysload.h
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+../Core/Inc/FreeRTOSConfig.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -120,35 +120,13 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/configblock.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-../Core/Inc/FreeRTOSConfig.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usb.h:
-../USB_DEVICE/Target/usbd_conf.h:
-../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/sysload.h:

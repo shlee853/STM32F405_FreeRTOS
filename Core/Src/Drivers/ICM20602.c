@@ -164,7 +164,7 @@ int ICM20602_Initialization(void)
 	// who am i = 0x12
 	if(who_am_i == 0x12)
 	{
-		DEBUG_PRINT("\r\nICM20602 who_am_i = 0x%02x...OK\n\n", who_am_i);
+		DEBUG_PRINT("\r\nICM20602 who_am_i = 0x%02x.................Pass\n", who_am_i);
 	}
 	// recheck
 	else if(who_am_i != 0x12)
@@ -172,7 +172,7 @@ int ICM20602_Initialization(void)
 		who_am_i = ICM20602_Readbyte(WHO_AM_I); // check again WHO_AM_I (0x75)
 
 		if (who_am_i != 0x12){
-			DEBUG_PRINT( "ICM20602 Not OK: 0x%02x Should be 0x%02x\n", who_am_i, 0x12);
+			DEBUG_PRINT( "ICM20602 is not found: 0x%02x Should be 0x%02x\n", who_am_i, 0x12);
 			return 1; //ERROR
 		}
 	}

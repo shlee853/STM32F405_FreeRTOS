@@ -154,7 +154,7 @@ void crtpTxTask(void *param)
         while (link->sendPacket(&p) == false)
         {
           // Relaxation time
-          vTaskDelay(M2T(10));
+          vTaskDelay((10));
         }
         stats.txCount++;
         updateStats();
@@ -162,7 +162,7 @@ void crtpTxTask(void *param)
     }
     else
     {
-      vTaskDelay(M2T(10));
+      vTaskDelay((10));
     }
   }
 }
@@ -194,7 +194,7 @@ void crtpRxTask(void *param)
     }
     else
     {
-      vTaskDelay(M2T(10));
+      vTaskDelay((10));
     }
   }
 }

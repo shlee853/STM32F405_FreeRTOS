@@ -1,4 +1,4 @@
 ../Core/Src/Drivers/system.c:114:6:systemLaunch	24	static
-../Core/Src/Drivers/system.c:123:6:systemTask	24	static
-../Core/Src/Drivers/system.c:162:6:systemWaitStart	8	static
-../Core/Src/Drivers/system.c:176:6:systemInit	8	static
+../Core/Src/Drivers/system.c:125:6:systemTask	24	static
+../Core/Src/Drivers/system.c:164:6:systemWaitStart	8	static
+../Core/Src/Drivers/system.c:178:6:systemInit	16	static

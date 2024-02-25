@@ -33,7 +33,7 @@
 #include "semphr.h"
 
 #include "debug.h"
-//#include "version.h"
+#include "version.h"
 #include "config.h"
 #include "led.h"
 //#include "param.h"
@@ -114,6 +114,8 @@ static void systemTask(void *arg);
 void systemLaunch(void)
 {
   STATIC_MEM_TASK_CREATE(systemTask, systemTask, SYSTEM_TASK_NAME, NULL, SYSTEM_TASK_PRI);
+  DEBUG_PRINT("[TASK] systemTask is running!\n");
+
 }
 
 
@@ -122,12 +124,12 @@ void systemLaunch(void)
 
 void systemTask(void *arg)
 {
-
   bool pass = true;
+
 
   uint32_t ld = SysTick->LOAD;
   time1 = DWT->CYCCNT;
-  delay_us(10);	// 1ms
+  delay_us(1000);	// 1ms
   time2 = DWT->CYCCNT;
   DEBUG_PRINT("delay = %.2f(us)\n",(float)(time2-time1)/CLOCK_PER_USEC);
 
@@ -182,31 +184,26 @@ void systemInit(void)
   xSemaphoreTake(canStartMutex, portMAX_DELAY);
 
   usblinkInit();
-//  sysLoadInit();
+  DEBUG_PRINT("[TASK] usblinkTask is running!\n");
+
+  sysLoadInit();
+  DEBUG_PRINT("sysLoadMonitorTimer is Initialized\n");
+
 #if CONFIG_ENABLE_CPX
 //  cpxlinkInit();
 #endif
 
   /* Initialized here so that DEBUG_PRINT (buffered) can be used early */
-//  debugInit();
-//  crtpInit();
-//  consoleInit();
+  debugInit();
+  crtpInit();
+  DEBUG_PRINT("[TASK] crtpTxTask is running!\n");
+  DEBUG_PRINT("[TASK] crtpRxTask is running!\n");
 
-  DEBUG_PRINT("----------------------------\n");
+  consoleInit();
 
-// USB CDC Test Code
-/*  while(1) {
-	  sprintf(usb_buf, "USB CDC TEST %d\r\n", count);
-	  CDC_Transmit_FS(usb_buf, BUF_SIZE);
-	  delay_us(1000);
-	  memset(usb_buf,0,BUF_SIZE);
-	  count++;
-  }
-  */
+  DEBUG_PRINT("%s is up and running!\n", platformConfigGetDeviceTypeName());
 
-//  DEBUG_PRINT("%s is up and running!\n", platformConfigGetDeviceTypeName());
-
-/*  if (V_PRODUCTION_RELEASE) {
+  if (V_PRODUCTION_RELEASE) {
     DEBUG_PRINT("Production release %s\n", V_STAG);
   } else {
     DEBUG_PRINT("Build %s:%s (%s) %s\n", V_SLOCAL_REVISION,
@@ -216,9 +213,9 @@ void systemInit(void)
               *((int*)(MCU_ID_ADDRESS+8)), *((int*)(MCU_ID_ADDRESS+4)),
               *((int*)(MCU_ID_ADDRESS+0)), *((short*)(MCU_FLASH_SIZE_ADDRESS)));
 
-  configblockInit();
-  storageInit();
-  workerInit();
+//  configblockInit();			// 현재 디바이스에 EEPROM이 존재하지 않음
+//  storageInit();
+/*  workerInit();
   adcInit();
   ledseqInit();
   pmInit();

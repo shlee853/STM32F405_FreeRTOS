@@ -25,6 +25,7 @@ RM := rm -rf
 -include Core/Src/Comms/subdir.mk
 -include Core/Src/subdir.mk
 -include Core/Lib/STM32F4xx_StdPeriph_Driver/src/subdir.mk
+-include Core/Inc/Drivers/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

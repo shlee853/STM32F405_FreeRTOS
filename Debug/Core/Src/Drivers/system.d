@@ -61,6 +61,7 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
@@ -130,6 +131,7 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
