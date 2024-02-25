@@ -3,7 +3,7 @@
 ../Core/Src/Comms/crtp.c:105:6:crtpInitTaskQueue	24	static
 ../Core/Src/Comms/crtp.c:113:5:crtpReceivePacket	16	static
 ../Core/Src/Comms/crtp.c:121:5:crtpReceivePacketBlock	16	static
-../Core/Src/Comms/crtp.c:130:5:crtpReceivePacketWait	32	static
+../Core/Src/Comms/crtp.c:130:5:crtpReceivePacketWait	24	static
 ../Core/Src/Comms/crtp.c:138:5:crtpGetFreeTxQueuePackets	8	static
 ../Core/Src/Comms/crtp.c:143:6:crtpTxTask	48	static
 ../Core/Src/Comms/crtp.c:170:6:crtpRxTask	48	static

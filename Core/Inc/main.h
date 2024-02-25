@@ -62,6 +62,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -88,6 +90,8 @@ void Error_Handler(void);
 #define UART6_TX_DEBUG_GPIO_Port GPIOC
 #define UART6_RX_DEBUG_Pin GPIO_PIN_7
 #define UART6_RX_DEBUG_GPIO_Port GPIOC
+#define TIM3_BUZZER_Pin GPIO_PIN_4
+#define TIM3_BUZZER_GPIO_Port GPIOB
 #define LED_BLUE_Pin GPIO_PIN_5
 #define LED_BLUE_GPIO_Port GPIOB
 

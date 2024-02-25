@@ -44,6 +44,10 @@
  *----------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
+
+#include "config.h"
+#include "cfassert.h"
+
 /* Section where include file can be added */
 /* USER CODE END Includes */
 
@@ -145,6 +149,21 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 header file. */
 /* USER CODE BEGIN 1 */
 #define configASSERT( x ) if ((x) == 0) {taskDISABLE_INTERRUPTS(); for( ;; );}
+
+#define xPortSysTickHandler tickFreeRTOS
+
+//#if configTICK_RATE_HZ_RAW != 1000
+//  #error "Please review the use of M2T and T2M if there is not a 1 to 1 mapping between ticks and milliseconds"
+//#endif
+#define M2T(X) ((unsigned int)(X))
+#define F2T(X) ((unsigned int)((configTICK_RATE_HZ/(X))))
+#define T2M(X) ((unsigned int)(X))
+
+// Seconds to OS ticks
+#define S2T(X) ((portTickType)((X) * configTICK_RATE_HZ))
+#define T2S(X) ((X) / (float)configTICK_RATE_HZ)
+
+
 /* USER CODE END 1 */
 
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
@@ -159,8 +178,38 @@ standard names. */
 
 /* USER CODE BEGIN 2 */
 /* Definitions needed when configGENERATE_RUN_TIME_STATS is on */
+
+#define configSUPPORT_STATIC_ALLOCATION 1
+
 #define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS configureTimerForRunTimeStats
 #define portGET_RUN_TIME_COUNTER_VALUE getRunTimeCounterValue
+
+#define configUSE_APPLICATION_TASK_TAG  1
+#define configQUEUE_REGISTRY_SIZE       10
+
+#ifdef DEBUG
+#define configRECORD_STACK_HIGH_ADDRESS 1
+#endif
+
+#define TASK_LED_ID_NBR         1
+#define TASK_RADIO_ID_NBR       2
+#define TASK_STABILIZER_ID_NBR  3
+#define TASK_ADC_ID_NBR         4
+#define TASK_PM_ID_NBR          5
+#define TASK_PROXIMITY_ID_NBR   6
+
+#define configASSERT( x )  if( ( x ) == 0 ) assertFail(#x, __FILE__, __LINE__ )
+
+#ifdef CONFIG_DEBUG_QUEUE_MONITOR
+    #undef traceQUEUE_SEND
+    #undef traceQUEUE_SEND_FAILED
+    #define traceQUEUE_SEND(xQueue) qm_traceQUEUE_SEND(xQueue)
+    void qm_traceQUEUE_SEND(void* xQueue);
+    #define traceQUEUE_SEND_FAILED(xQueue) qm_traceQUEUE_SEND_FAILED(xQueue)
+    void qm_traceQUEUE_SEND_FAILED(void* xQueue);
+#endif // CONFIG_DEBUG_QUEUE_MONITOR
+
+
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN Defines */

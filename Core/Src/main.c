@@ -76,6 +76,7 @@ ADC_HandleTypeDef hadc2;
 DMA_HandleTypeDef hdma_adc1;
 DMA_HandleTypeDef hdma_adc2;
 
+TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim7;
 
 UART_HandleTypeDef huart6;
@@ -89,7 +90,7 @@ unsigned long  t1=0;
 unsigned long  t2=0;
 
 
-uint16_t adc1Val, adc2Val;
+//uint16_t adc1Val, adc2Val;
 
 
 
@@ -104,6 +105,7 @@ static void MX_TIM7_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
+static void MX_TIM3_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
@@ -157,7 +159,22 @@ int main(void)
   MX_SPI1_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+
+
+/*  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
+  TIM3->PSC = 250;
+  delay_us(30000);
+  TIM3->PSC = 500;
+  delay_us(30000);
+  TIM3->PSC = 1000;
+  delay_us(30000);
+
+  HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
+*/
+
 
 //  InitTick(72000000, 1000000U);			//	Clock을 1us단위로 조정, 1ms함수 사용할 수 없음
 
@@ -186,14 +203,16 @@ int main(void)
   DEBUG_PRINT("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
 //  uint32_t ld = SysTick->LOAD;
 
-  HAL_ADC_Start_DMA(&hadc1, &adc1Val, 1);
-  HAL_ADC_Start_DMA(&hadc2, &adc2Val, 1);
-  while(1){
+//  HAL_ADC_Start_DMA(&hadc1, &adc1Val, 1);
+//  HAL_ADC_Start_DMA(&hadc2, &adc2Val, 1);
+
+  // ADC Test
+/*  while(1){
 
 	  DEBUG_PRINT("ADC Measure - Current:[%04d]\t Voltage:[%04d]\n", adc1Val, adc2Val);
 	  delay_us(1000);
   }
-
+*/
   systemLaunch();
 
 
@@ -445,6 +464,65 @@ static void MX_SPI1_Init(void)
   /* USER CODE BEGIN SPI1_Init 2 */
 
   /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 999;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 71;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 36;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+  HAL_TIM_MspPostInit(&htim3);
 
 }
 

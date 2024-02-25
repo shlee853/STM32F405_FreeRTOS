@@ -45,7 +45,7 @@
 #include "platform.h"
 //#include "storage.h"
 //#include "configblock.h"
-//#include "worker.h"
+#include "worker.h"
 //#include "freeRTOSdebug.h"
 //#include "uart_syslink.h"
 //#include "uart1.h"
@@ -53,8 +53,8 @@
 //#include "comm.h"
 //#include "stabilizer.h"
 //#include "commander.h"
-//#include "console.h"
-//#include "usblink.h"
+#include "console.h"
+#include "usblink.h"
 //#include "mem.h"
 //#include "crtp_mem.h"
 //#include "proximity.h"
@@ -62,7 +62,7 @@
 #include "queuemonitor.h"
 //#include "buzzer.h"
 //#include "sound.h"
-//#include "sysload.h"
+#include "sysload.h"
 //#include "estimator_kalman.h"
 //#include "estimator_ukf.h"
 //#include "deck.h"
@@ -218,10 +218,23 @@ void systemInit(void)
 //  configblockInit();			// 현재 디바이스에 EEPROM이 존재하지 않음
 //  storageInit();
   workerInit();
-/*  ledseqInit();
+  ledseqInit();
+  DEBUG_PRINT("[TASK] lesdeqCmdTask is running!\n");
+
+
   pmInit();
+  DEBUG_PRINT("[TASK] pmTask is running!\n");
+
   buzzerInit();
-  peerLocalizationInit();
+  buzzerOn(1000);
+  HAL_Delay(1);
+  buzzerOn(2000);
+  HAL_Delay(1);
+  buzzerOn(3000);
+  HAL_Delay(1);
+  buzzerOff();
+
+/*  peerLocalizationInit();
 
 #ifdef CONFIG_APP_ENABLE
   appInit();
