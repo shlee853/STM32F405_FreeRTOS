@@ -20,6 +20,9 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -45,7 +48,7 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/configblock.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/configblock.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
@@ -97,6 +100,9 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
@@ -122,7 +128,7 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/configblock.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/configblock.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:

@@ -47,6 +47,9 @@
 #include "trace.h"
 #include "usec_time.h"
 
+#define ADC_BAT_COEFF			0.008701172f
+
+
 #define CONFIG_BLOCK_ADDRESS    (2048 * (64-1))
 #define MCU_ID_ADDRESS          0x1FFF7A10
 #define MCU_FLASH_SIZE_ADDRESS  0x1FFF7A22

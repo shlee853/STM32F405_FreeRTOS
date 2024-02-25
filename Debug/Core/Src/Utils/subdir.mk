@@ -13,7 +13,8 @@ C_SRCS += \
 ../Core/Src/Utils/queuemonitor.c \
 ../Core/Src/Utils/sysload.c \
 ../Core/Src/Utils/usec_time.c \
-../Core/Src/Utils/version.c 
+../Core/Src/Utils/version.c \
+../Core/Src/Utils/worker.c 
 
 OBJS += \
 ./Core/Src/Utils/cfassert.o \
@@ -24,7 +25,8 @@ OBJS += \
 ./Core/Src/Utils/queuemonitor.o \
 ./Core/Src/Utils/sysload.o \
 ./Core/Src/Utils/usec_time.o \
-./Core/Src/Utils/version.o 
+./Core/Src/Utils/version.o \
+./Core/Src/Utils/worker.o 
 
 C_DEPS += \
 ./Core/Src/Utils/cfassert.d \
@@ -35,7 +37,8 @@ C_DEPS += \
 ./Core/Src/Utils/queuemonitor.d \
 ./Core/Src/Utils/sysload.d \
 ./Core/Src/Utils/usec_time.d \
-./Core/Src/Utils/version.d 
+./Core/Src/Utils/version.d \
+./Core/Src/Utils/worker.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -45,7 +48,7 @@ Core/Src/Utils/%.o Core/Src/Utils/%.su Core/Src/Utils/%.cyclo: ../Core/Src/Utils
 clean: clean-Core-2f-Src-2f-Utils
 
 clean-Core-2f-Src-2f-Utils:
-	-$(RM) ./Core/Src/Utils/cfassert.cyclo ./Core/Src/Utils/cfassert.d ./Core/Src/Utils/cfassert.o ./Core/Src/Utils/cfassert.su ./Core/Src/Utils/console.cyclo ./Core/Src/Utils/console.d ./Core/Src/Utils/console.o ./Core/Src/Utils/console.su ./Core/Src/Utils/debug.cyclo ./Core/Src/Utils/debug.d ./Core/Src/Utils/debug.o ./Core/Src/Utils/debug.su ./Core/Src/Utils/debug_printf.cyclo ./Core/Src/Utils/debug_printf.d ./Core/Src/Utils/debug_printf.o ./Core/Src/Utils/debug_printf.su ./Core/Src/Utils/eprintf.cyclo ./Core/Src/Utils/eprintf.d ./Core/Src/Utils/eprintf.o ./Core/Src/Utils/eprintf.su ./Core/Src/Utils/queuemonitor.cyclo ./Core/Src/Utils/queuemonitor.d ./Core/Src/Utils/queuemonitor.o ./Core/Src/Utils/queuemonitor.su ./Core/Src/Utils/sysload.cyclo ./Core/Src/Utils/sysload.d ./Core/Src/Utils/sysload.o ./Core/Src/Utils/sysload.su ./Core/Src/Utils/usec_time.cyclo ./Core/Src/Utils/usec_time.d ./Core/Src/Utils/usec_time.o ./Core/Src/Utils/usec_time.su ./Core/Src/Utils/version.cyclo ./Core/Src/Utils/version.d ./Core/Src/Utils/version.o ./Core/Src/Utils/version.su
+	-$(RM) ./Core/Src/Utils/cfassert.cyclo ./Core/Src/Utils/cfassert.d ./Core/Src/Utils/cfassert.o ./Core/Src/Utils/cfassert.su ./Core/Src/Utils/console.cyclo ./Core/Src/Utils/console.d ./Core/Src/Utils/console.o ./Core/Src/Utils/console.su ./Core/Src/Utils/debug.cyclo ./Core/Src/Utils/debug.d ./Core/Src/Utils/debug.o ./Core/Src/Utils/debug.su ./Core/Src/Utils/debug_printf.cyclo ./Core/Src/Utils/debug_printf.d ./Core/Src/Utils/debug_printf.o ./Core/Src/Utils/debug_printf.su ./Core/Src/Utils/eprintf.cyclo ./Core/Src/Utils/eprintf.d ./Core/Src/Utils/eprintf.o ./Core/Src/Utils/eprintf.su ./Core/Src/Utils/queuemonitor.cyclo ./Core/Src/Utils/queuemonitor.d ./Core/Src/Utils/queuemonitor.o ./Core/Src/Utils/queuemonitor.su ./Core/Src/Utils/sysload.cyclo ./Core/Src/Utils/sysload.d ./Core/Src/Utils/sysload.o ./Core/Src/Utils/sysload.su ./Core/Src/Utils/usec_time.cyclo ./Core/Src/Utils/usec_time.d ./Core/Src/Utils/usec_time.o ./Core/Src/Utils/usec_time.su ./Core/Src/Utils/version.cyclo ./Core/Src/Utils/version.d ./Core/Src/Utils/version.o ./Core/Src/Utils/version.su ./Core/Src/Utils/worker.cyclo ./Core/Src/Utils/worker.d ./Core/Src/Utils/worker.o ./Core/Src/Utils/worker.su
 
 .PHONY: clean-Core-2f-Src-2f-Utils
 

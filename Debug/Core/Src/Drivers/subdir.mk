@@ -7,7 +7,6 @@
 C_SRCS += \
 ../Core/Src/Drivers/ICM20602.c \
 ../Core/Src/Drivers/bootloader.c \
-../Core/Src/Drivers/configblockeeprom.c \
 ../Core/Src/Drivers/led.c \
 ../Core/Src/Drivers/system.c \
 ../Core/Src/Drivers/usb.c \
@@ -17,7 +16,6 @@ C_SRCS += \
 OBJS += \
 ./Core/Src/Drivers/ICM20602.o \
 ./Core/Src/Drivers/bootloader.o \
-./Core/Src/Drivers/configblockeeprom.o \
 ./Core/Src/Drivers/led.o \
 ./Core/Src/Drivers/system.o \
 ./Core/Src/Drivers/usb.o \
@@ -27,7 +25,6 @@ OBJS += \
 C_DEPS += \
 ./Core/Src/Drivers/ICM20602.d \
 ./Core/Src/Drivers/bootloader.d \
-./Core/Src/Drivers/configblockeeprom.d \
 ./Core/Src/Drivers/led.d \
 ./Core/Src/Drivers/system.d \
 ./Core/Src/Drivers/usb.d \
@@ -42,7 +39,7 @@ Core/Src/Drivers/%.o Core/Src/Drivers/%.su Core/Src/Drivers/%.cyclo: ../Core/Src
 clean: clean-Core-2f-Src-2f-Drivers
 
 clean-Core-2f-Src-2f-Drivers:
-	-$(RM) ./Core/Src/Drivers/ICM20602.cyclo ./Core/Src/Drivers/ICM20602.d ./Core/Src/Drivers/ICM20602.o ./Core/Src/Drivers/ICM20602.su ./Core/Src/Drivers/bootloader.cyclo ./Core/Src/Drivers/bootloader.d ./Core/Src/Drivers/bootloader.o ./Core/Src/Drivers/bootloader.su ./Core/Src/Drivers/configblockeeprom.cyclo ./Core/Src/Drivers/configblockeeprom.d ./Core/Src/Drivers/configblockeeprom.o ./Core/Src/Drivers/configblockeeprom.su ./Core/Src/Drivers/led.cyclo ./Core/Src/Drivers/led.d ./Core/Src/Drivers/led.o ./Core/Src/Drivers/led.su ./Core/Src/Drivers/system.cyclo ./Core/Src/Drivers/system.d ./Core/Src/Drivers/system.o ./Core/Src/Drivers/system.su ./Core/Src/Drivers/usb.cyclo ./Core/Src/Drivers/usb.d ./Core/Src/Drivers/usb.o ./Core/Src/Drivers/usb.su ./Core/Src/Drivers/usblink.cyclo ./Core/Src/Drivers/usblink.d ./Core/Src/Drivers/usblink.o ./Core/Src/Drivers/usblink.su ./Core/Src/Drivers/vcp_esc_passthrough.cyclo ./Core/Src/Drivers/vcp_esc_passthrough.d ./Core/Src/Drivers/vcp_esc_passthrough.o ./Core/Src/Drivers/vcp_esc_passthrough.su
+	-$(RM) ./Core/Src/Drivers/ICM20602.cyclo ./Core/Src/Drivers/ICM20602.d ./Core/Src/Drivers/ICM20602.o ./Core/Src/Drivers/ICM20602.su ./Core/Src/Drivers/bootloader.cyclo ./Core/Src/Drivers/bootloader.d ./Core/Src/Drivers/bootloader.o ./Core/Src/Drivers/bootloader.su ./Core/Src/Drivers/led.cyclo ./Core/Src/Drivers/led.d ./Core/Src/Drivers/led.o ./Core/Src/Drivers/led.su ./Core/Src/Drivers/system.cyclo ./Core/Src/Drivers/system.d ./Core/Src/Drivers/system.o ./Core/Src/Drivers/system.su ./Core/Src/Drivers/usb.cyclo ./Core/Src/Drivers/usb.d ./Core/Src/Drivers/usb.o ./Core/Src/Drivers/usb.su ./Core/Src/Drivers/usblink.cyclo ./Core/Src/Drivers/usblink.d ./Core/Src/Drivers/usblink.o ./Core/Src/Drivers/usblink.su ./Core/Src/Drivers/vcp_esc_passthrough.cyclo ./Core/Src/Drivers/vcp_esc_passthrough.d ./Core/Src/Drivers/vcp_esc_passthrough.o ./Core/Src/Drivers/vcp_esc_passthrough.su
 
 .PHONY: clean-Core-2f-Src-2f-Drivers
 
