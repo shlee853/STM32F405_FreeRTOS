@@ -194,6 +194,7 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim7);
   t1 = DWT->CYCCNT;
+//  vTaskDelay(M2T(2000));
   delay_us(1000);	// 1002 us
 //  vTaskDelay(1);	// 입력값에 상관없이 약 7us, 정상적인 동작 안됨
 //  usDelay(10);

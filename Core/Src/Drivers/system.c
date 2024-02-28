@@ -227,19 +227,25 @@ void systemInit(void)
 
   buzzerInit();
   buzzerOn(1000);
-  HAL_Delay(1);
+  HAL_Delay(2);
   buzzerOn(2000);
-  HAL_Delay(1);
+  HAL_Delay(2);
   buzzerOn(3000);
-  HAL_Delay(1);
+  HAL_Delay(2);
+  buzzerOn(2000);
+  HAL_Delay(2);
   buzzerOff();
 
-/*  peerLocalizationInit();
+  peerLocalizationInit();
+  DEBUG_PRINT("peerLocalization is Initialized!\n");
+
 
 #ifdef CONFIG_APP_ENABLE
+  DEBUG_PRINT("-------------- Start User application -----------------\n");
   appInit();
+  DEBUG_PRINT("[TASK] appTask is running!\n");
 #endif
-*/
+
   isInit = true;
 }
 

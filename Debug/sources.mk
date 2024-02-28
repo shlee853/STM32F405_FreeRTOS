@@ -23,6 +23,8 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core/Lib/STM32F4xx_StdPeriph_Driver/src \
+Core/Src/Algo \
+Core/Src/App \
 Core/Src/Comms \
 Core/Src/Drivers \
 Core/Src/Platform \
