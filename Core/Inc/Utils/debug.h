@@ -41,14 +41,8 @@
 #include "config.h"
 #include "static_mem.h"
 
-
-
-#ifdef CONFIG_DEBUG_PRINT_ON_UART
-	#define uartPrintf(FMT, ...) eprintf(uartPutchar, FMT, ## __VA_ARGS__);
-#endif
-
 #ifdef DEBUG_PRINT_ON_SEGGER_RTT
-//  #include "SEGGER_RTT.h"
+  #include "SEGGER_RTT.h"
 #endif
 
 #ifdef DEBUG_MODULE
@@ -60,27 +54,35 @@
 #endif
 
 
+  #define DEBUG_PRINT(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
+  #define DEBUG_PRINT_OS(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
 
+/*
 #if defined(UNIT_TEST_MODE)
   #include <stdio.h>
   #define DEBUG_PRINT(fmt, ...) printf(DEBUG_FMT(fmt), ##__VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) printf(DEBUG_FMT(fmt), ##__VA_ARGS__)
 
+#elif defined(DEBUG_PRINT_ON_SEGGER_RTT)
+  #define DEBUG_PRINT(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
+  #define DEBUG_PRINT_OS(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
+
+
 #elif defined(CONFIG_DEBUG_PRINT_ON_UART)
-  #define DEBUG_PRINT(fmt, ...) uartPrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
-  #define DEBUG_PRINT_OS(fmt, ...) uartPrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
+  #define DEBUG_PRINT(DEBUG_FMT, ...) eprintf(uartPutchar, DEBUG_FMT, ## __VA_ARGS__)
+  #define DEBUG_PRINT_OS(DEBUG_FMT, ...) eprintf(uartPutchar, DEBUG_FMT, ## __VA_ARGS__)
 
 #elif defined(DEBUG_PRINT_ON_SWO)
   #define DEBUG_PRINT(fmt, ...) eprintf(ITM_SendChar, fmt, ## __VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) eprintf(ITM_SendChar, fmt, ## __VA_ARGS__)
-#elif defined(DEBUG_PRINT_ON_SEGGER_RTT)
-  #define DEBUG_PRINT(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
-  #define DEBUG_PRINT_OS(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
 #else // Debug using radio or USB
 //  #define DEBUG_PRINT(fmt, ...) consolePrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
 //  #define DEBUG_PRINT_OS(fmt, ...) consolePrintf(DEBUG_FMT(fmt), ##__VA_ARGS__)
   //#define DEBUG_PRINT(fmt, ...)
 #endif
+
+*/
+
 
 #ifndef PRINT_OS_DEBUG_INFO
   #undef DEBUG_PRINT_OS
@@ -113,5 +115,5 @@ bool uartDidOverrun(void);
 void uartSendData(uint32_t size, uint8_t* data);
 void uartSendDataDmaBlocking(uint32_t size, uint8_t* data);
 
-int UART_PRINTF(int file, char* p, int len);	// printf
-
+int UART_PRINTF(int file, char* p, int len);	// UART printf
+int SWV_PRINTF(int file, char* p, int len);		// SWO printf

@@ -71,7 +71,7 @@ Core/Src/Drivers/pm_stm32f4.o: ../Core/Src/Drivers/pm_stm32f4.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/worker.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform_defaults.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform_defaults_cf2.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/syslink.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h:
@@ -144,4 +144,4 @@ Core/Src/Drivers/pm_stm32f4.o: ../Core/Src/Drivers/pm_stm32f4.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/worker.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform_defaults.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform_defaults_cf2.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/syslink.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h:

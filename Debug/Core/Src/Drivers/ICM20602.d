@@ -64,7 +64,9 @@ Core/Src/Drivers/ICM20602.o: ../Core/Src/Drivers/ICM20602.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -132,3 +134,5 @@ Core/Src/Drivers/ICM20602.o: ../Core/Src/Drivers/ICM20602.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:

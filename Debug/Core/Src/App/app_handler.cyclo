@@ -1,3 +1,2 @@
-../Core/Src/App/app_handler.c:51:28:appInit	2
-../Core/Src/App/app_handler.c:61:13:appTask	1
-../Core/Src/App/app_handler.c:73:6:appMain	1
+../Core/Src/App/app_handler.c:44:28:appInit	2
+../Core/Src/App/app_handler.c:54:13:appTask	1

@@ -26,6 +26,7 @@
 #define DEBUG_MODULE "SYS"
 
 #include <stdbool.h>
+#include <stdio.h>
 
 /* FreeRtos includes */
 #include "FreeRTOS.h"
@@ -131,7 +132,7 @@ void systemTask(void *arg)
   time1 = DWT->CYCCNT;
   delay_us(1000);	// 1ms
   time2 = DWT->CYCCNT;
-  DEBUG_PRINT("delay = %.2f(us)\n",(float)(time2-time1)/CLOCK_PER_USEC);
+  DEBUG_PRINT("delay = %d(us)\n",(uint32_t)(time2-time1)/CLOCK_PER_USEC);
 
 
   ledInit();
@@ -156,8 +157,155 @@ void systemTask(void *arg)
   passthroughInit();	// Create passthrough task
 
   systemInit();
-//  commInit();
+  commInit();
 //  commanderInit();
+
+/*
+  StateEstimatorType estimator = StateEstimatorTypeAutoSelect;
+
+  #ifdef CONFIG_ESTIMATOR_KALMAN_ENABLE
+  estimatorKalmanTaskInit();
+  #endif
+
+  #ifdef CONFIG_ESTIMATOR_UKF_ENABLE
+  errorEstimatorUkfTaskInit();
+  #endif
+
+  // Enabling incoming syslink messages to be added to the queue.
+  // This should probably be done later, but deckInit() takes a long time if this is done later.
+  uartslkEnableIncoming();
+
+  memInit();
+  deckInit();
+  estimator = deckGetRequiredEstimator();
+  stabilizerInit(estimator);
+  if (deckGetRequiredLowInterferenceRadioMode() && platformConfigPhysicalLayoutAntennasAreClose())
+  {
+    platformSetLowInterferenceRadioMode();
+  }
+  soundInit();
+  crtpMemInit();
+
+#ifdef PROXIMITY_ENABLED
+  proximityInit();
+#endif
+
+  systemRequestNRFVersion();
+
+  //Test the modules
+  DEBUG_PRINT("About to run tests in system.c.\n");
+  if (systemTest() == false) {
+    pass = false;
+    DEBUG_PRINT("system [FAIL]\n");
+  }
+  if (configblockTest() == false) {
+    pass = false;
+    DEBUG_PRINT("configblock [FAIL]\n");
+  }
+  if (storageTest() == false) {
+    pass = false;
+    DEBUG_PRINT("storage [FAIL]\n");
+  }
+  if (commTest() == false) {
+    pass = false;
+    DEBUG_PRINT("comm [FAIL]\n");
+  }
+  if (commanderTest() == false) {
+    pass = false;
+    DEBUG_PRINT("commander [FAIL]\n");
+  }
+  if (stabilizerTest() == false) {
+    pass = false;
+    DEBUG_PRINT("stabilizer [FAIL]\n");
+  }
+
+  #ifdef CONFIG_ESTIMATOR_KALMAN_ENABLE
+  if (estimatorKalmanTaskTest() == false) {
+    pass = false;
+    DEBUG_PRINT("estimatorKalmanTask [FAIL]\n");
+  }
+  #endif
+
+  #ifdef CONFIG_ESTIMATOR_UKF_ENABLE
+  if (errorEstimatorUkfTaskTest() == false) {
+    pass = false;
+    DEBUG_PRINT("estimatorUKFTask [FAIL]\n");
+  }
+  #endif
+
+  if (deckTest() == false) {
+    pass = false;
+    DEBUG_PRINT("deck [FAIL]\n");
+  }
+  if (soundTest() == false) {
+    pass = false;
+    DEBUG_PRINT("sound [FAIL]\n");
+  }
+  if (memTest() == false) {
+    pass = false;
+    DEBUG_PRINT("mem [FAIL]\n");
+  }
+  if (crtpMemTest() == false) {
+    pass = false;
+    DEBUG_PRINT("CRTP mem [FAIL]\n");
+  }
+  if (watchdogNormalStartTest() == false) {
+    pass = false;
+    DEBUG_PRINT("watchdogNormalStart [FAIL]\n");
+  }
+  if (cfAssertNormalStartTest() == false) {
+    pass = false;
+    DEBUG_PRINT("cfAssertNormalStart [FAIL]\n");
+  }
+  if (peerLocalizationTest() == false) {
+    pass = false;
+    DEBUG_PRINT("peerLocalization [FAIL]\n");
+  }
+
+  //Start the firmware
+  if(pass)
+  {
+    DEBUG_PRINT("Self test passed!\n");
+    selftestPassed = 1;
+    systemStart();
+    soundSetEffect(SND_STARTUP);
+    ledseqRun(&seq_alive);
+    ledseqRun(&seq_testPassed);
+  }
+  else
+  {
+    selftestPassed = 0;
+    if (systemTest())
+    {
+      while(1)
+      {
+        ledseqRun(&seq_testFailed);
+        vTaskDelay(M2T(2000));
+        // System can be forced to start by setting the param to 1 from the cfclient
+        if (selftestPassed)
+        {
+	        DEBUG_PRINT("Start forced.\n");
+          systemStart();
+          break;
+        }
+      }
+    }
+    else
+    {
+      ledInit();
+      ledSet(SYS_LED, true);
+    }
+  }
+  DEBUG_PRINT("Free heap: %d bytes\n", xPortGetFreeHeapSize());
+
+  workerLoop();
+
+  //Should never reach this point!
+  while(1)
+    vTaskDelay(portMAX_DELAY);
+
+
+    */
 
 }
 
@@ -226,7 +374,7 @@ void systemInit(void)
   DEBUG_PRINT("[TASK] pmTask is running!\n");
 
   buzzerInit();
-  buzzerOn(1000);
+/*  buzzerOn(1000);
   HAL_Delay(2);
   buzzerOn(2000);
   HAL_Delay(2);
@@ -234,6 +382,7 @@ void systemInit(void)
   HAL_Delay(2);
   buzzerOn(2000);
   HAL_Delay(2);
+  */
   buzzerOff();
 
   peerLocalizationInit();

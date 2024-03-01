@@ -65,6 +65,8 @@ Core/Src/Drivers/sound_cf2.o: ../Core/Src/Drivers/sound_cf2.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/log.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sound.h
@@ -135,6 +137,8 @@ Core/Src/Drivers/sound_cf2.o: ../Core/Src/Drivers/sound_cf2.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/log.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sound.h:

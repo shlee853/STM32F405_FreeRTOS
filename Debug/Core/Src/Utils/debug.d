@@ -63,7 +63,9 @@ Core/Src/Utils/debug.o: ../Core/Src/Utils/debug.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
@@ -130,3 +132,5 @@ Core/Src/Utils/debug.o: ../Core/Src/Utils/debug.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:

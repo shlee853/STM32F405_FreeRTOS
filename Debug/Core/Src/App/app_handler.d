@@ -60,13 +60,7 @@ Core/Src/App/app_handler.o: ../Core/Src/App/app_handler.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/App/app.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/App/app.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
@@ -130,9 +124,3 @@ Core/Src/App/app_handler.o: ../Core/Src/App/app_handler.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/App/app.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:

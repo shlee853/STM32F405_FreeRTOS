@@ -31,38 +31,38 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include <cassert>
-#include <string>
+//#include <cassert.h>
+#include <string.h>
 #include "app.h"
 
-extern "C"
-{
+//extern "C"
+//{
   #include "app.h"
 
   #include "FreeRTOS.h"
   #include "task.h"
 
   #include "debug.h"
-}
+//}
 
 #define DEBUG_MODULE "HELLOWORLD"
-
+/*
 class MyClass {
   public:
     int myNum;
     std::string myString;
 };
-
+*/
 void appMain()
 {
   DEBUG_PRINT("Waiting for activation ...\n");
 
-  MyClass *cl = new MyClass();
-  DEBUG_PRINT("MyClass has a num: %d\n", cl->myNum);
+//  MyClass *cl = new MyClass();
+//  DEBUG_PRINT("MyClass has a num: %d\n", cl->myNum);
 
   /* make sure that the assertion is not simple enough to be optimized away
    * by the compiler */
-  assert(cl->myNum + cl->myString.size() == 0);
+//  assert(cl->myNum + cl->myString.size() == 0);
 
   while(1) {
     vTaskDelay(M2T(2000));

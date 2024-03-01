@@ -78,7 +78,9 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -160,3 +162,5 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:

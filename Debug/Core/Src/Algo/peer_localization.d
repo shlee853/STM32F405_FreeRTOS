@@ -64,6 +64,8 @@ Core/Src/Algo/peer_localization.o: ../Core/Src/Algo/peer_localization.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/peer_localization.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/math3d.h \
@@ -136,6 +138,8 @@ Core/Src/Algo/peer_localization.o: ../Core/Src/Algo/peer_localization.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/peer_localization.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/math3d.h:

@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <stdint.h>
 #include "stm32f4xx.h"
 #include "stm32f4xx_it.h"
 
@@ -43,6 +44,7 @@
 
 
 
+#include "SEGGER_RTT.h"
 
 
 
@@ -139,7 +141,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  debugInit();
 
   /* USER CODE END Init */
 
@@ -180,9 +182,12 @@ int main(void)
 
   __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
 
+//  SEGGER_RTT_Init();
+//  SEGGER_RTT_ConfigUpBuffer(0, NULL, NULL, 0, SEGGER_RTT_MODE_NO_BLOCK_TRIM);
+
+
+
   freertos_IntroTitle();
-
-
 
   check_enter_bootloader();
 
@@ -201,7 +206,8 @@ int main(void)
 //  HAL_Delay(1);		// 1350 us
   t2 = DWT->CYCCNT;
   HAL_TIM_Base_Stop_IT(&htim7);
-  DEBUG_PRINT("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
+  //  DEBUG_PRINT("delay = %.2f(us)\n",(float)(t2-t1)/CLOCK_PER_USEC);
+  DEBUG_PRINT("delay = %d(us)\n",(uint32_t)(t2-t1)/CLOCK_PER_USEC);
 //  uint32_t ld = SysTick->LOAD;
 
 //  HAL_ADC_Start_DMA(&hadc1, &adc1Val, 1);
@@ -698,7 +704,7 @@ void freertos_IntroTitle(void)
   DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
   DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]     FreeRTOS version %s\n", OSVersion());
   DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
-  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n");
+  DEBUG_PRINT("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n\n");
 }
 
 void vAssertCalled( const char *pcFile, unsigned int ulLine )
@@ -728,6 +734,25 @@ void delay_us (uint16_t us)
 	HAL_TIM_Base_Stop_IT(&htim7);
 }
 
+/*
+int _write(int32_t file, uint8_t *ptr, int32_t len) {
+    for(int32_t i = 0; i < len; ++i) {
+    	ITM_SendChar(*ptr++); }
+    return len;
+}
+
+int ITMSendChar(uint32_t ch)
+{
+  if (((ITM->TCR & ITM_TCR_ITMENA_Msk) != 0UL) &&
+      ((ITM->TER & 1UL               ) != 0UL)   )
+  {
+    ITM->PORT[0U].u8 = (uint8_t)ch;
+  }
+  return (ch);
+}
+
+
+*/
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */

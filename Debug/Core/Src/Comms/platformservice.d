@@ -59,7 +59,7 @@ Core/Src/Comms/platformservice.o: ../Core/Src/Comms/platformservice.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/platformservice.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/syslink.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
@@ -127,7 +127,7 @@ Core/Src/Comms/platformservice.o: ../Core/Src/Comms/platformservice.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/platformservice.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/syslink.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:

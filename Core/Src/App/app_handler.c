@@ -40,13 +40,6 @@ STATIC_MEM_TASK_ALLOC(appTask, CONFIG_APP_STACKSIZE);
 
 static void appTask(void *param);
 
-// AppMain
-#include "debug.h"
-#define DEBUG_MODULE "HELLOWORLD"
-
-
-
-
 
 void __attribute__((weak)) appInit()
 {
@@ -70,16 +63,3 @@ static void appTask(void *param)
 }
 
 
-void appMain()
-{
-  DEBUG_PRINT("Waiting for activation ...\n");
-
-
-  /* make sure that the assertion is not simple enough to be optimized away
-   * by the compiler */
-
-  while(1) {
-    vTaskDelay(M2T(2000));
-    DEBUG_PRINT("Hello World!\n");
-  }
-}
