@@ -83,6 +83,7 @@ TIM_HandleTypeDef htim7;
 
 UART_HandleTypeDef huart6;
 DMA_HandleTypeDef hdma_usart6_tx;
+DMA_HandleTypeDef hdma_usart6_rx;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
@@ -141,7 +142,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  debugInit();
 
   /* USER CODE END Init */
 
@@ -164,6 +164,9 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
+  debugInit();
+  uartInit();
+  uartDmaInit();
 
 /*  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
@@ -181,10 +184,6 @@ int main(void)
 //  InitTick(72000000, 1000000U);			//	Clock을 1us단위로 조정, 1ms함수 사용할 수 없음
 
   __HAL_UART_ENABLE_IT(&huart6, UART_IT_RXNE);
-
-//  SEGGER_RTT_Init();
-//  SEGGER_RTT_ConfigUpBuffer(0, NULL, NULL, 0, SEGGER_RTT_MODE_NO_BLOCK_TRIM);
-
 
 
   freertos_IntroTitle();
@@ -617,12 +616,15 @@ static void MX_DMA_Init(void)
   /* DMA2_Stream0_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+  /* DMA2_Stream1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
   /* DMA2_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
-  /* DMA2_Stream6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
+  /* DMA2_Stream7_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
 
 }
 

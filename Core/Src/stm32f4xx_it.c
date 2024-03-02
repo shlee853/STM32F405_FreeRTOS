@@ -73,6 +73,7 @@ extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_adc2;
 extern TIM_HandleTypeDef htim7;
 extern DMA_HandleTypeDef hdma_usart6_tx;
+extern DMA_HandleTypeDef hdma_usart6_rx;
 extern UART_HandleTypeDef huart6;
 /* USER CODE BEGIN EV */
 
@@ -243,6 +244,20 @@ void DMA2_Stream0_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles DMA2 stream1 global interrupt.
+  */
+void DMA2_Stream1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream1_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart6_rx);
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream1_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA2 stream2 global interrupt.
   */
 void DMA2_Stream2_IRQHandler(void)
@@ -271,23 +286,17 @@ void OTG_FS_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles DMA2 stream6 global interrupt.
+  * @brief This function handles DMA2 stream7 global interrupt.
   */
-void DMA2_Stream6_IRQHandler(void)
+void DMA2_Stream7_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA2_Stream6_IRQn 0 */
-  xSemaphoreTakeFromISR(waitUntilSendDone, portMAX_DELAY);
+  /* USER CODE BEGIN DMA2_Stream7_IRQn 0 */
 
-  portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
-  __HAL_DMA_CLEAR_FLAG(&hdma_usart6_tx, DMA_FLAG_TCIF2_6);
-  __HAL_DMA_DISABLE(&hdma_usart6_tx);
-  xSemaphoreGiveFromISR(waitUntilSendDone, &xHigherPriorityTaskWoken);
-  portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-  /* USER CODE END DMA2_Stream6_IRQn 0 */
+  /* USER CODE END DMA2_Stream7_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart6_tx);
-  /* USER CODE BEGIN DMA2_Stream6_IRQn 1 */
+  /* USER CODE BEGIN DMA2_Stream7_IRQn 1 */
 
-  /* USER CODE END DMA2_Stream6_IRQn 1 */
+  /* USER CODE END DMA2_Stream7_IRQn 1 */
 }
 
 /**

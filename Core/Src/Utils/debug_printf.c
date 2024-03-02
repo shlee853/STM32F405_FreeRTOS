@@ -10,7 +10,6 @@
 xQueueHandle uartqueue;
 STATIC_MEM_QUEUE_ALLOC(uartqueue, QUEUE_LENGTH, sizeof(uint8_t));
 
-//#define ENABLE_UART_DMA
 xSemaphoreHandle uartBusy;
 StaticSemaphore_t uartBusyBuffer;
 xSemaphoreHandle waitUntilSendDone;
@@ -52,8 +51,13 @@ int _write(int32_t file, uint8_t *ptr, int32_t len) {
 
 
 void uartInit(void) {
+
+#ifdef CONFIG_DEBUG_PRINT_ON_UART
 	uartqueue = STATIC_MEM_QUEUE_CREATE(uartqueue);
-    isInit = true;
+	isInit = true;
+  //  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
+#endif
+
 }
 
 
@@ -61,18 +65,23 @@ void uartInit(void) {
 void uartDmaInit(void)
 {
 
-  // initialize the FreeRTOS structures first, to prevent null pointers in interrupts
-  waitUntilSendDone = xSemaphoreCreateBinaryStatic(&waitUntilSendDoneBuffer); // initialized as blocking
-  uartBusy = xSemaphoreCreateBinaryStatic(&uartBusyBuffer); // initialized as blocking
-  xSemaphoreGive(uartBusy); // but we give it because the uart isn't busy at initialization
-  xSemaphoreGive(waitUntilSendDone);
 
-  __HAL_RCC_DMA2_CLK_ENABLE();
-  HAL_DMA_Init(&hdma_usart6_tx);
-  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
+#ifdef ENABLE_UART_DMA
 
-  isUartDmaInitialized = true;
+	  // initialize the FreeRTOS structures first, to prevent null pointers in interrupts
+	  waitUntilSendDone = xSemaphoreCreateBinaryStatic(&waitUntilSendDoneBuffer); // initialized as blocking
+	  uartBusy = xSemaphoreCreateBinaryStatic(&uartBusyBuffer); // initialized as blocking
+	  xSemaphoreGive(uartBusy); // but we give it because the uart isn't busy at initialization
+	  xSemaphoreGive(waitUntilSendDone);
+
+	  __HAL_RCC_DMA2_CLK_ENABLE();
+	  HAL_DMA_Init(&hdma_usart6_tx);
+	  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 0);
+	  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
+
+	  isUartDmaInitialized = true;
+#endif
+
 
 }
 

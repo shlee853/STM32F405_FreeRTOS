@@ -48,28 +48,23 @@ void commInit(void)
   if (isInit)
     return;
 
-//  uartslkInit();
-//  radiolinkInit();
+  uartslkInit();
+  radiolinkInit();
 
-  /* These functions are moved to be initialized early so
-   * that DEBUG_PRINT can be used early */
-  // crtpInit();
-  // consoleInit();
+  crtpSetLink(radiolinkGetLink());
 
-//  crtpSetLink(radiolinkGetLink());
-
-//  crtpserviceInit();
-//  platformserviceInit();
-//  logInit();
-//  paramInit();
-//  locSrvInit();
+  crtpserviceInit();
+  platformserviceInit();
+  logInit();
+  paramInit();
+  locSrvInit();
 
   //setup CRTP communication channel
   //TODO: check for USB first and prefer USB over radio
-  //if (usbTest())
-  //  crtpSetLink(usbGetLink);
-  //else if(radiolinkTest())
-  //  crtpSetLink(radiolinkGetLink());
+  if (usbTest())
+    crtpSetLink(usblinkGetLink());
+  else if(radiolinkTest())
+    crtpSetLink(radiolinkGetLink());
   
   isInit = true;
 }

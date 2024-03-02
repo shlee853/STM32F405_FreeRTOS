@@ -7,23 +7,29 @@
 C_SRCS += \
 ../Core/Src/Comms/comm.c \
 ../Core/Src/Comms/crtp.c \
+../Core/Src/Comms/crtp_localization_service.c \
 ../Core/Src/Comms/crtpservice.c \
 ../Core/Src/Comms/platformservice.c \
-../Core/Src/Comms/radiolink.c 
+../Core/Src/Comms/radiolink.c \
+../Core/Src/Comms/syslink.c 
 
 OBJS += \
 ./Core/Src/Comms/comm.o \
 ./Core/Src/Comms/crtp.o \
+./Core/Src/Comms/crtp_localization_service.o \
 ./Core/Src/Comms/crtpservice.o \
 ./Core/Src/Comms/platformservice.o \
-./Core/Src/Comms/radiolink.o 
+./Core/Src/Comms/radiolink.o \
+./Core/Src/Comms/syslink.o 
 
 C_DEPS += \
 ./Core/Src/Comms/comm.d \
 ./Core/Src/Comms/crtp.d \
+./Core/Src/Comms/crtp_localization_service.d \
 ./Core/Src/Comms/crtpservice.d \
 ./Core/Src/Comms/platformservice.d \
-./Core/Src/Comms/radiolink.d 
+./Core/Src/Comms/radiolink.d \
+./Core/Src/Comms/syslink.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -33,7 +39,7 @@ Core/Src/Comms/%.o Core/Src/Comms/%.su Core/Src/Comms/%.cyclo: ../Core/Src/Comms
 clean: clean-Core-2f-Src-2f-Comms
 
 clean-Core-2f-Src-2f-Comms:
-	-$(RM) ./Core/Src/Comms/comm.cyclo ./Core/Src/Comms/comm.d ./Core/Src/Comms/comm.o ./Core/Src/Comms/comm.su ./Core/Src/Comms/crtp.cyclo ./Core/Src/Comms/crtp.d ./Core/Src/Comms/crtp.o ./Core/Src/Comms/crtp.su ./Core/Src/Comms/crtpservice.cyclo ./Core/Src/Comms/crtpservice.d ./Core/Src/Comms/crtpservice.o ./Core/Src/Comms/crtpservice.su ./Core/Src/Comms/platformservice.cyclo ./Core/Src/Comms/platformservice.d ./Core/Src/Comms/platformservice.o ./Core/Src/Comms/platformservice.su ./Core/Src/Comms/radiolink.cyclo ./Core/Src/Comms/radiolink.d ./Core/Src/Comms/radiolink.o ./Core/Src/Comms/radiolink.su
+	-$(RM) ./Core/Src/Comms/comm.cyclo ./Core/Src/Comms/comm.d ./Core/Src/Comms/comm.o ./Core/Src/Comms/comm.su ./Core/Src/Comms/crtp.cyclo ./Core/Src/Comms/crtp.d ./Core/Src/Comms/crtp.o ./Core/Src/Comms/crtp.su ./Core/Src/Comms/crtp_localization_service.cyclo ./Core/Src/Comms/crtp_localization_service.d ./Core/Src/Comms/crtp_localization_service.o ./Core/Src/Comms/crtp_localization_service.su ./Core/Src/Comms/crtpservice.cyclo ./Core/Src/Comms/crtpservice.d ./Core/Src/Comms/crtpservice.o ./Core/Src/Comms/crtpservice.su ./Core/Src/Comms/platformservice.cyclo ./Core/Src/Comms/platformservice.d ./Core/Src/Comms/platformservice.o ./Core/Src/Comms/platformservice.su ./Core/Src/Comms/radiolink.cyclo ./Core/Src/Comms/radiolink.d ./Core/Src/Comms/radiolink.o ./Core/Src/Comms/radiolink.su ./Core/Src/Comms/syslink.cyclo ./Core/Src/Comms/syslink.d ./Core/Src/Comms/syslink.o ./Core/Src/Comms/syslink.su
 
 .PHONY: clean-Core-2f-Src-2f-Comms
 

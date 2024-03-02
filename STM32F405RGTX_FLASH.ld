@@ -65,6 +65,8 @@ SECTIONS
   .text :
   {
     . = ALIGN(4);
+      _stext = .;
+      
     *(.text)           /* .text sections (code) */
     *(.text*)          /* .text* sections (code) */
     *(.glue_7)         /* glue arm to thumb code */
@@ -75,6 +77,35 @@ SECTIONS
     KEEP (*(.fini))
 
     . = ALIGN(4);
+    
+    	/* CF2를 위해 추된 역 */
+        /* Parameters */
+        . = ALIGN(4);
+        _param_start = .;
+        KEEP(*(.param))
+        KEEP(*(.param.*))
+        _param_stop = .;
+        /* Logging */
+        . = ALIGN(4);
+        _log_start = .;
+        KEEP(*(.log))
+        KEEP(*(.log.*))
+        _log_stop = .;
+        /* Decks */
+	    . = ALIGN(4);
+        _deckDriver_start = .;
+        KEEP(*(.deckDriver));
+        KEEP(*(.deckDriver.*));
+        _deckDriver_stop = .;
+        /* Event Triggers */
+	    . = ALIGN(4);
+        _eventtrigger_start = .;
+        KEEP(*(.eventtrigger));
+        KEEP(*(.eventtrigger.*));
+        _eventtrigger_stop = .;
+
+    
+    
     _etext = .;        /* define a global symbols at end of code */
   } >FLASH
 

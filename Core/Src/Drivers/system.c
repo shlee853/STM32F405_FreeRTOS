@@ -47,6 +47,7 @@
 //#include "storage.h"
 //#include "configblock.h"
 #include "worker.h"
+#include "syslink.h"
 //#include "freeRTOSdebug.h"
 //#include "uart_syslink.h"
 //#include "uart1.h"
@@ -144,8 +145,7 @@ void systemTask(void *arg)
 #endif
 
 #ifdef CONFIG_DEBUG_QUEUE_MONITOR
-  uartInit();
-  uartDmaInit();
+
   //  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
   //  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
 #endif
@@ -344,7 +344,7 @@ void systemInit(void)
 #endif
 
   /* Initialized here so that DEBUG_PRINT (buffered) can be used early */
-  debugInit();
+//  debugInit();
   crtpInit();
   DEBUG_PRINT("[TASK] crtpTxTask is running!\n");
   DEBUG_PRINT("[TASK] crtpRxTask is running!\n");
@@ -398,5 +398,17 @@ void systemInit(void)
   isInit = true;
 }
 
+void systemSyslinkReceive(SyslinkPacket *slp)
+{
+  if (slp->type == SYSLINK_SYS_NRF_VERSION)
+  {
+    size_t len = slp->length - 1;
 
+    if (sizeof(nrf_version) - 1 <=  len) {
+      len = sizeof(nrf_version) - 1;
+    }
+    memcpy(&nrf_version, &slp->data[0], len );
+    DEBUG_PRINT("NRF51 version: %s\n", nrf_version);
+  }
+}
 

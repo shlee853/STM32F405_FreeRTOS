@@ -129,9 +129,9 @@ static void platformCommandProcess(CRTPPacket *p)
     case armSystem:
     {
       const bool doArm = data[0];
-      const bool success = supervisorRequestArming(doArm);
-      data[0] = success;
-      data[1] = supervisorIsArmed();
+//      const bool success = supervisorRequestArming(doArm);
+//      data[0] = success;
+//      data[1] = supervisorIsArmed();
       p->size = 2;
       break;
     }

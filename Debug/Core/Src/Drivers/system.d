@@ -72,6 +72,7 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/worker.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/console.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h \
@@ -152,6 +153,7 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/worker.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/console.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h:

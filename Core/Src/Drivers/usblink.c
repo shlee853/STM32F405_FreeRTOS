@@ -54,14 +54,14 @@ static uint8_t sendBuffer[64];
 //static int usblinkReceivePacket(CRTPPacket *p);
 
 STATIC_MEM_TASK_ALLOC(usblinkTask, USBLINK_TASK_STACKSIZE);
-/*
+
 static struct crtpLinkOperations usblinkOp =
 {
   .setEnable         = usblinkSetEnable,
   .sendPacket        = usblinkSendPacket,
   .receivePacket     = usblinkReceivePacket,
 };
-*/
+
 /* Radio task handles the CRTP packet transfers as well as the radio link
  * specific communications (eg. Scann and ID ports, communication error handling
  * and so much other cool things that I don't have time for it ...)
@@ -138,7 +138,7 @@ void usblinkInit()
 
   isInit = true;
 }
-/*
+
 bool usblinkTest()
 {
   return isInit;
@@ -148,4 +148,4 @@ struct crtpLinkOperations * usblinkGetLink()
 {
   return &usblinkOp;
 }
-*/
+

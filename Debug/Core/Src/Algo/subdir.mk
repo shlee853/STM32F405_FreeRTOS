@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/Algo/estimator.c \
 ../Core/Src/Algo/peer_localization.c 
 
 OBJS += \
+./Core/Src/Algo/estimator.o \
 ./Core/Src/Algo/peer_localization.o 
 
 C_DEPS += \
+./Core/Src/Algo/estimator.d \
 ./Core/Src/Algo/peer_localization.d 
 
 
@@ -21,7 +24,7 @@ Core/Src/Algo/%.o Core/Src/Algo/%.su Core/Src/Algo/%.cyclo: ../Core/Src/Algo/%.c
 clean: clean-Core-2f-Src-2f-Algo
 
 clean-Core-2f-Src-2f-Algo:
-	-$(RM) ./Core/Src/Algo/peer_localization.cyclo ./Core/Src/Algo/peer_localization.d ./Core/Src/Algo/peer_localization.o ./Core/Src/Algo/peer_localization.su
+	-$(RM) ./Core/Src/Algo/estimator.cyclo ./Core/Src/Algo/estimator.d ./Core/Src/Algo/estimator.o ./Core/Src/Algo/estimator.su ./Core/Src/Algo/peer_localization.cyclo ./Core/Src/Algo/peer_localization.d ./Core/Src/Algo/peer_localization.o ./Core/Src/Algo/peer_localization.su
 
 .PHONY: clean-Core-2f-Src-2f-Algo
 

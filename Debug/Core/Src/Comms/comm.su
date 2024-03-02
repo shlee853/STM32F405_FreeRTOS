@@ -1,2 +1,2 @@
-../Core/Src/Comms/comm.c:46:6:commInit	4	static
-../Core/Src/Comms/comm.c:77:6:commTest	16	static
+../Core/Src/Comms/comm.c:46:6:commInit	8	static
+../Core/Src/Comms/comm.c:72:6:commTest	16	static
