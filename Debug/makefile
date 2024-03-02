@@ -21,6 +21,7 @@ RM := rm -rf
 -include Core/Startup/subdir.mk
 -include Core/Src/Utils/subdir.mk
 -include Core/Src/Platform/subdir.mk
+-include Core/Src/Interface/subdir.mk
 -include Core/Src/Drivers/subdir.mk
 -include Core/Src/Comms/subdir.mk
 -include Core/Src/App/subdir.mk
@@ -76,7 +77,7 @@ main-build: STM32F405_FreeRTOS.elf secondary-outputs
 
 # Tool invocations
 STM32F405_FreeRTOS.elf STM32F405_FreeRTOS.map: $(OBJS) $(USER_OBJS) /home/swift/workspace/project/STM32F405_FreeRTOS/STM32F405RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32F405_FreeRTOS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/swift/workspace/project/STM32F405_FreeRTOS/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F405_FreeRTOS.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "STM32F405_FreeRTOS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/swift/workspace/project/STM32F405_FreeRTOS/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F405_FreeRTOS.map" -Wl,--gc-sections -static -L../Middlewares/ST/ARM/DSP/Lib -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

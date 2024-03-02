@@ -163,6 +163,7 @@ void systemTask(void *arg)
   DEBUG_PRINT("System communications are Initialized!\n");
 
   commanderInit();
+  DEBUG_PRINT("System commander are Initialized!\n");
 
 /*
   StateEstimatorType estimator = StateEstimatorTypeAutoSelect;

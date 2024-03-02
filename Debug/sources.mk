@@ -27,6 +27,7 @@ Core/Src/Algo \
 Core/Src/App \
 Core/Src/Comms \
 Core/Src/Drivers \
+Core/Src/Interface \
 Core/Src/Platform \
 Core/Src/Utils \
 Core/Src \

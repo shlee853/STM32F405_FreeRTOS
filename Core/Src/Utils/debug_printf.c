@@ -1,10 +1,14 @@
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include "main.h"
 #include "debug.h"
-
+#include "static_mem.h"
 #include "stm32fxxx.h"
+#include "FreeRTOS.h"
+#include "queue.h"
+#include "semphr.h"
 
 #define QUEUE_LENGTH 64
 xQueueHandle uartqueue;
