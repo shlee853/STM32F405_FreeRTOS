@@ -67,6 +67,7 @@
 #include "sysload.h"
 //#include "estimator_kalman.h"
 //#include "estimator_ukf.h"
+#include "estimator.h"
 //#include "deck.h"
 //#include "extrx.h"
 //#include "app.h"
@@ -165,7 +166,7 @@ void systemTask(void *arg)
   commanderInit();
   DEBUG_PRINT("System commander are Initialized!\n");
 
-/*
+
   StateEstimatorType estimator = StateEstimatorTypeAutoSelect;
 
   #ifdef CONFIG_ESTIMATOR_KALMAN_ENABLE
@@ -178,7 +179,7 @@ void systemTask(void *arg)
 
   // Enabling incoming syslink messages to be added to the queue.
   // This should probably be done later, but deckInit() takes a long time if this is done later.
-  uartslkEnableIncoming();
+/*  uartslkEnableIncoming();
 
   memInit();
   deckInit();

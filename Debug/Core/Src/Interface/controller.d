@@ -73,15 +73,14 @@ Core/Src/Interface/controller.o: ../Core/Src/Interface/controller.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_pid.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_mellinger.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/math3d.h \
- ../Core/Src/Interface/controller_indi.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_indi.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/filter.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/log.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/position_controller.h \
- ../Core/Src/Interface/attitude_controller.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/attitude_controller.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/position_controller_indi.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_indi.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/filter.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_brescianini.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
@@ -158,13 +157,12 @@ Core/Src/Interface/controller.o: ../Core/Src/Interface/controller.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_pid.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_mellinger.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/math3d.h:
-../Core/Src/Interface/controller_indi.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_indi.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/filter.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/log.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/position_controller.h:
-../Core/Src/Interface/attitude_controller.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/attitude_controller.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/position_controller_indi.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_indi.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/filter.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/controller_brescianini.h:

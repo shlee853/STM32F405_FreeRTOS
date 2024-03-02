@@ -78,6 +78,10 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/sysload.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/estimator.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/lighthouse_types.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
@@ -159,4 +163,8 @@ Core/Src/Drivers/system.o: ../Core/Src/Drivers/system.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/crtp.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/sysload.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/estimator.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/lighthouse_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ICM20602.h:

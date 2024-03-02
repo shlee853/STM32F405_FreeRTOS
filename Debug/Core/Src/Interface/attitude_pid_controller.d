@@ -3,7 +3,7 @@ Core/Src/Interface/attitude_pid_controller.o: \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/lighthouse_types.h \
- ../Core/Src/Interface/attitude_controller.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/attitude_controller.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/pid.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/filter.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h \
@@ -62,7 +62,7 @@ Core/Src/Interface/attitude_pid_controller.o: \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/lighthouse_types.h:
-../Core/Src/Interface/attitude_controller.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/attitude_controller.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/pid.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Interface/filter.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h:
