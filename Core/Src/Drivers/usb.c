@@ -336,6 +336,18 @@ bool usbGetDataBlocking(USBPacket *in)
   return true;
 }
 
+
+static USBPacket outStage;
+
+bool usbSendData(uint32_t size, uint8_t* data)
+{
+  outStage.size = size;
+  memcpy(outStage.data, data, size);
+  // Dont' block when sending
+  return (xQueueSend(usbDataTx, &outStage, M2T(100)) == pdTRUE);
+}
+
+
 void usbInit(void)
 {
 

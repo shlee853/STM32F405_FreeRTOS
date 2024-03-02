@@ -152,13 +152,17 @@ void systemTask(void *arg)
 
   ICM20602_Initialization();	// 여기서 일정 시간 지연이 있어야 STM32 VCP 포트가 활성화됨 원인파악중
 
-  delay_us(5000000);
-
   passthroughInit();	// Create passthrough task
 
   systemInit();
+  DEBUG_PRINT("System drivers are Initialized!\n");
+
+
+
   commInit();
-//  commanderInit();
+  DEBUG_PRINT("System communications are Initialized!\n");
+
+  commanderInit();
 
 /*
   StateEstimatorType estimator = StateEstimatorTypeAutoSelect;

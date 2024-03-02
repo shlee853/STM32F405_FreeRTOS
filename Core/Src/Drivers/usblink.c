@@ -32,7 +32,7 @@
 #include "crtp.h"
 #include "configblock.h"
 #include "ledseq.h"
-//#include "pm.h"
+#include "pm.h"
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -43,15 +43,17 @@
 
 #include "usb.h"
 #include "debug.h"
+#include "syslink.h"
+
 
 static bool isInit = false;
 static xQueueHandle crtpPacketDelivery;
 STATIC_MEM_QUEUE_ALLOC(crtpPacketDelivery, 16, sizeof(CRTPPacket));
 static uint8_t sendBuffer[64];
 
-//static int usblinkSendPacket(CRTPPacket *p);
-//static int usblinkSetEnable(bool enable);
-//static int usblinkReceivePacket(CRTPPacket *p);
+static int usblinkSendPacket(CRTPPacket *p);
+static int usblinkSetEnable(bool enable);
+static int usblinkReceivePacket(CRTPPacket *p);
 
 STATIC_MEM_TASK_ALLOC(usblinkTask, USBLINK_TASK_STACKSIZE);
 
@@ -82,7 +84,7 @@ static void usblinkTask(void *param)
 
 }
 
-/*
+
 static int usblinkReceivePacket(CRTPPacket *p)
 {
   if (xQueueReceive(crtpPacketDelivery, p, M2T(100)) == pdTRUE)
@@ -114,14 +116,13 @@ static int usblinkSendPacket(CRTPPacket *p)
   return usbSendData(dataSize, sendBuffer);
 }
 
+
+
 static int usblinkSetEnable(bool enable)
 {
   return 0;
 }
-*/
-/*
- * Public functions
- */
+
 
 void usblinkInit()
 {

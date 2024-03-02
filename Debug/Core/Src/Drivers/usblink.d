@@ -51,6 +51,8 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/configblock.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/pm.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
@@ -64,7 +66,6 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
@@ -80,7 +81,8 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -134,6 +136,8 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/configblock.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/pm.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
@@ -147,7 +151,6 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/queuemonitor.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
@@ -164,3 +167,4 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h:

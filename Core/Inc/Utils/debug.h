@@ -53,9 +53,9 @@
 #define DEBUG_FMT(fmt) fmt
 #endif
 
-
   #define DEBUG_PRINT(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
   #define DEBUG_PRINT_OS(fmt, ...) SEGGER_RTT_printf(0, fmt, ## __VA_ARGS__)
+
 
 /*
 #if defined(UNIT_TEST_MODE)

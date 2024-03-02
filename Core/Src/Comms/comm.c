@@ -51,7 +51,10 @@ void commInit(void)
   uartslkInit();
   radiolinkInit();
 
-  crtpSetLink(radiolinkGetLink());
+  if (usbTest())
+    crtpSetLink(usblinkGetLink());
+  else if(radiolinkTest())
+    crtpSetLink(radiolinkGetLink());
 
   crtpserviceInit();
   platformserviceInit();
@@ -59,13 +62,7 @@ void commInit(void)
   paramInit();
   locSrvInit();
 
-  //setup CRTP communication channel
-  //TODO: check for USB first and prefer USB over radio
-  if (usbTest())
-    crtpSetLink(usblinkGetLink());
-  else if(radiolinkTest())
-    crtpSetLink(radiolinkGetLink());
-  
+
   isInit = true;
 }
 
