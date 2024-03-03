@@ -65,8 +65,8 @@
 //#include "buzzer.h"
 //#include "sound.h"
 #include "sysload.h"
-//#include "estimator_kalman.h"
-//#include "estimator_ukf.h"
+#include "estimator_kalman.h"
+#include "estimator_ukf.h"
 #include "estimator.h"
 //#include "deck.h"
 //#include "extrx.h"
@@ -177,13 +177,12 @@ void systemTask(void *arg)
   errorEstimatorUkfTaskInit();
   #endif
 
-  // Enabling incoming syslink messages to be added to the queue.
-  // This should probably be done later, but deckInit() takes a long time if this is done later.
-/*  uartslkEnableIncoming();
+  uartslkEnableIncoming();
 
   memInit();
   deckInit();
-  estimator = deckGetRequiredEstimator();
+
+/*  estimator = deckGetRequiredEstimator();
   stabilizerInit(estimator);
   if (deckGetRequiredLowInterferenceRadioMode() && platformConfigPhysicalLayoutAntennasAreClose())
   {

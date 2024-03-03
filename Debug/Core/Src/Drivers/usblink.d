@@ -28,22 +28,13 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_cortex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_utils.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h \
@@ -51,6 +42,8 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/configblock.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/pm.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
@@ -113,22 +106,13 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_cortex.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_utils.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/usblink.h:
@@ -136,6 +120,8 @@ Core/Src/Drivers/usblink.o: ../Core/Src/Drivers/usblink.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/configblock.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/ledseq.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/pm.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:

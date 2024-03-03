@@ -1,0 +1,7 @@
+../Core/Src/Interface/deck_spi.c:99:6:spiBegin	1
+../Core/Src/Interface/deck_spi.c:139:13:spiDMAInit	3
+../Core/Src/Interface/deck_spi.c:189:13:spiConfigureWithSpeed	2
+../Core/Src/Interface/deck_spi.c:225:6:spiTest	1
+../Core/Src/Interface/deck_spi.c:230:6:spiExchange	3
+../Core/Src/Interface/deck_spi.c:270:6:spiBeginTransaction	1
+../Core/Src/Interface/deck_spi.c:276:6:spiEndTransaction	1

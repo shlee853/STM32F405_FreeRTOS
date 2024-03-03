@@ -22,6 +22,11 @@
 
 #include "ICM20602.h"
 #include "debug.h"
+#include "stm32f4xx_ll_spi.h"
+#include "stm32f4xx_ll_gpio.h"
+
+extern SPI_HandleTypeDef hspi1;
+extern DMA_HandleTypeDef hdma_spi1_rx;
 
 Struct_ICM20602 ICM20602;
 int32_t gyro_x_offset, gyro_y_offset, gyro_z_offset; // To remove offset
@@ -29,62 +34,78 @@ int32_t gyro_x_offset, gyro_y_offset, gyro_z_offset; // To remove offset
 
 void ICM20602_GPIO_SPI_Initialization(void)
 {
-	LL_SPI_InitTypeDef SPI_InitStruct = {0};
 	
-	LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-	/* Peripheral clock enable */
-	LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SPI1);
+	GPIO_InitTypeDef GPIO_InitStruct;
 	
-	LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOA);
-	LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOC);
+	__HAL_RCC_SPI1_CLK_ENABLE();
+
+	__HAL_RCC_GPIOA_CLK_ENABLE();
 	/**SPI1 GPIO Configuration
 	PA5   ------> SPI1_SCK
 	PA6   ------> SPI1_MISO
 	PA7   ------> SPI1_MOSI
 	*/
-	GPIO_InitStruct.Pin = LL_GPIO_PIN_5|LL_GPIO_PIN_6|LL_GPIO_PIN_7;
-	GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
-	GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
-	GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-	GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-	GPIO_InitStruct.Alternate = LL_GPIO_AF_5;
-	LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = SPI1_SCK_PIN_Pin|SPI1_MISO_PIN_Pin|SPI1_MOSI_PIN_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = SPI1_NSS_PIN_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    HAL_GPIO_Init(SPI1_NSS_PIN_GPIO_Port, &GPIO_InitStruct);
+
 	
-	SPI_InitStruct.TransferDirection = LL_SPI_FULL_DUPLEX;
-	SPI_InitStruct.Mode = LL_SPI_MODE_MASTER;
-	SPI_InitStruct.DataWidth = LL_SPI_DATAWIDTH_8BIT;
-	SPI_InitStruct.ClockPolarity = LL_SPI_POLARITY_HIGH;
-	SPI_InitStruct.ClockPhase = LL_SPI_PHASE_2EDGE;
-	SPI_InitStruct.NSS = LL_SPI_NSS_SOFT;
-	SPI_InitStruct.BaudRate = LL_SPI_BAUDRATEPRESCALER_DIV8; //ICM-20602 MAX SPI CLK is 10MHz. But DIV2(42MHz) is available.
-	SPI_InitStruct.BitOrder = LL_SPI_MSB_FIRST;
-	SPI_InitStruct.CRCCalculation = LL_SPI_CRCCALCULATION_DISABLE;
-	SPI_InitStruct.CRCPoly = 10;
-	LL_SPI_Init(ICM20602_SPI_CHANNEL, &SPI_InitStruct);
-	LL_SPI_SetStandard(ICM20602_SPI_CHANNEL, LL_SPI_PROTOCOL_MOTOROLA);
+    GPIO_InitStruct.Pin = SPI1_INT_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(SPI1_INT_GPIO_Port, &GPIO_InitStruct);
+
+
+    hspi1.Instance = SPI1;
+    hspi1.Init.Mode = SPI_MODE_MASTER;
+    hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+    hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+    hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+    hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
+    hspi1.Init.NSS = SPI_NSS_SOFT;
+    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+    hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+    hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+    hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+    hspi1.Init.CRCPolynomial = 10;
+    if (HAL_SPI_Init(&hspi1) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    hdma_spi1_rx.Instance = DMA2_Stream0;
+    hdma_spi1_rx.Init.Channel = DMA_CHANNEL_3;
+    hdma_spi1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_spi1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_spi1_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_spi1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_spi1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_spi1_rx.Init.Mode = DMA_NORMAL;
+    hdma_spi1_rx.Init.Priority = DMA_PRIORITY_LOW;
+    hdma_spi1_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    if (HAL_DMA_Init(&hdma_spi1_rx) != HAL_OK)
+    {
+      Error_Handler();
+    }
 	
 	/**ICM20602 GPIO Control Configuration
 	 * PC4  ------> ICM20602_SPI_CS_PIN (output)
 	 * PC5  ------> ICM20602_INT_PIN (input)
 	 */
 	/**/
-	LL_GPIO_ResetOutputPin(ICM20602_SPI_CS_PORT, ICM20602_SPI_CS_PIN);
+    HAL_GPIO_WritePin(GPIOA, SPI1_NSS_PIN_Pin, GPIO_PIN_RESET);
 	
-	/**/
-	GPIO_InitStruct.Pin = ICM20602_SPI_CS_PIN;
-	GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-	GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
-	GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-	GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-	LL_GPIO_Init(ICM20602_SPI_CS_PORT, &GPIO_InitStruct);
-	
-	/**/
-	GPIO_InitStruct.Pin = ICM20602_INT_PIN;
-	GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
-	GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
-	LL_GPIO_Init(ICM20602_INT_PORT, &GPIO_InitStruct);
 
-	LL_SPI_Enable(ICM20602_SPI_CHANNEL);
+    __HAL_SPI_ENABLE(&hspi1);
 
 	CHIP_DESELECT(ICM20602);
 }
