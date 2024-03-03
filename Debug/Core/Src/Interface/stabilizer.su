@@ -1,0 +1,12 @@
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/quatcompress.h:34:24:quatcompress	48	static
+../Core/Src/Interface/stabilizer.c:124:13:calcSensorToOutputLatency	24	static
+../Core/Src/Interface/stabilizer.c:130:13:compressState	32	static
+../Core/Src/Interface/stabilizer.c:157:13:compressSetpoint	4	static
+../Core/Src/Interface/stabilizer.c:172:6:stabilizerInit	32	static
+../Core/Src/Interface/stabilizer.c:191:6:stabilizerTest	16	static
+../Core/Src/Interface/stabilizer.c:205:13:batteryCompensation	24	static
+../Core/Src/Interface/stabilizer.c:215:13:setMotorRatios	16	static
+../Core/Src/Interface/stabilizer.c:223:13:updateStateEstimatorAndControllerTypes	8	static
+../Core/Src/Interface/stabilizer.c:235:13:logCapWarning	16	static
+../Core/Src/Interface/stabilizer.c:249:13:controlMotors	24	static
+../Core/Src/Interface/stabilizer.c:261:13:stabilizerTask	40	static

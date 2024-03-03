@@ -27,7 +27,7 @@
 #define PLATFORM_H_
 
 #include <stdbool.h>
-//#include "motors.h"
+#include "motors.h"
 
 #include "autoconf.h"
 
@@ -59,7 +59,7 @@ typedef struct {
   char deviceTypeName[30];
   SensorImplementation_t sensorImplementation;
   bool physicalLayoutAntennasAreClose;
-//  const MotorPerifDef** motorMap;
+  const MotorPerifDef** motorMap;
 } platformConfig_t;
 
 /**
@@ -83,6 +83,6 @@ const char* platformConfigGetDeviceType();
 const char* platformConfigGetDeviceTypeName();
 SensorImplementation_t platformConfigGetSensorImplementation();
 bool platformConfigPhysicalLayoutAntennasAreClose();
-//const MotorPerifDef** platformConfigGetMotorMapping();
+const MotorPerifDef** platformConfigGetMotorMapping();
 
 #endif /* PLATFORM_H_ */

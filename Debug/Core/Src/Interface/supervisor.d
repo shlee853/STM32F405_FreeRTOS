@@ -51,8 +51,6 @@ Core/Src/Interface/supervisor.o: ../Core/Src/Interface/supervisor.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/power_distribution.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h \
@@ -126,8 +124,6 @@ Core/Src/Interface/supervisor.o: ../Core/Src/Interface/supervisor.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/power_distribution.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h:

@@ -53,6 +53,7 @@ Core/Src/Comms/platformservice.o: ../Core/Src/Comms/platformservice.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/App/app_channel.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
@@ -112,6 +113,7 @@ Core/Src/Comms/platformservice.o: ../Core/Src/Comms/platformservice.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Comms/syslink.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/App/app_channel.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:

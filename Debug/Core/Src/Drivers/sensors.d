@@ -4,8 +4,7 @@ Core/Src/Drivers/sensors.o: ../Core/Src/Drivers/sensors.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/lighthouse_types.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -44,6 +43,8 @@ Core/Src/Drivers/sensors.o: ../Core/Src/Drivers/sensors.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -67,8 +68,7 @@ Core/Src/Drivers/sensors.o: ../Core/Src/Drivers/sensors.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/lighthouse_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -108,6 +108,8 @@ Core/Src/Drivers/sensors.o: ../Core/Src/Drivers/sensors.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/trace.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/usec_time.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:

@@ -57,8 +57,6 @@ Core/Src/Drivers/vcp_esc_passthrough.o: \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
@@ -118,6 +116,4 @@ Core/Src/Drivers/vcp_esc_passthrough.o: \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/version.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/param.h:

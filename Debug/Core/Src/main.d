@@ -59,6 +59,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_DEVICE/Target/usbd_conf.h ../Core/Inc/stm32f4xx_it.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h \
@@ -135,6 +136,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../USB_DEVICE/Target/usbd_conf.h:
 ../Core/Inc/stm32f4xx_it.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/platform.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Platform/system.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/led.h:

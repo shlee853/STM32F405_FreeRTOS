@@ -5,3 +5,4 @@
 ../Core/Src/Platform/platform.c:101:13:platformConfigGetDeviceTypeName	4	static
 ../Core/Src/Platform/platform.c:105:24:platformConfigGetSensorImplementation	4	static
 ../Core/Src/Platform/platform.c:109:6:platformConfigPhysicalLayoutAntennasAreClose	4	static
+../Core/Src/Platform/platform.c:113:23:platformConfigGetMotorMapping	4	static

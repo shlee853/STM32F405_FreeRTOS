@@ -182,15 +182,16 @@ void systemTask(void *arg)
   memInit();
   deckInit();
 
-/*  estimator = deckGetRequiredEstimator();
+  estimator = deckGetRequiredEstimator();
+
   stabilizerInit(estimator);
   if (deckGetRequiredLowInterferenceRadioMode() && platformConfigPhysicalLayoutAntennasAreClose())
   {
-    platformSetLowInterferenceRadioMode();
+//    platformSetLowInterferenceRadioMode();
   }
   soundInit();
-  crtpMemInit();
-
+//  crtpMemInit();
+/*
 #ifdef PROXIMITY_ENABLED
   proximityInit();
 #endif

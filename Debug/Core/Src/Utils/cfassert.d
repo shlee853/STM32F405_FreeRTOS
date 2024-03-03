@@ -50,8 +50,6 @@ Core/Src/Utils/cfassert.o: ../Core/Src/Utils/cfassert.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
@@ -115,8 +113,6 @@ Core/Src/Utils/cfassert.o: ../Core/Src/Utils/cfassert.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/motors.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/autoconf.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32fxxx.h:
-/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Lib/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/debug.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/eprintf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:

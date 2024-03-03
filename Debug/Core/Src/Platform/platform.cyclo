@@ -5,3 +5,4 @@
 ../Core/Src/Platform/platform.c:101:13:platformConfigGetDeviceTypeName	1
 ../Core/Src/Platform/platform.c:105:24:platformConfigGetSensorImplementation	1
 ../Core/Src/Platform/platform.c:109:6:platformConfigPhysicalLayoutAntennasAreClose	1
+../Core/Src/Platform/platform.c:113:23:platformConfigGetMotorMapping	1

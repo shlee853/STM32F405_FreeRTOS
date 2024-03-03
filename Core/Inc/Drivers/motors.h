@@ -38,8 +38,8 @@
 #include "config.h"
 #include "autoconf.h"
 /* ST includes */
-#include "stm32fxxx.h"
-#include "stm32f4xx_tim.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal_tim.h"
 
 /******** Defines ********/
 
@@ -239,7 +239,7 @@ typedef struct
   /* Function pointers */
   void (*setCompare)(TIM_TypeDef* TIMx, uint32_t Compare);
   uint32_t (*getCompare)(TIM_TypeDef* TIMx);
-  void (*ocInit)(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
+  void (*ocInit)(TIM_TypeDef* TIMx, TIM_OC_InitTypeDef* TIM_OCInitStruct);
   void (*preloadConfig)(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload);
 } MotorPerifDef;
 
@@ -254,6 +254,7 @@ typedef struct {
 /**
  * Motor mapping configurations
  */
+
 extern const MotorPerifDef* motorMapNoMotors[NBR_OF_MOTORS];
 extern const MotorPerifDef* motorMapDefaultBrushed[NBR_OF_MOTORS];
 extern const MotorPerifDef* motorMapDefaltConBrushless[NBR_OF_MOTORS];
