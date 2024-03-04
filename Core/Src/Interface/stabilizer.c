@@ -174,7 +174,7 @@ void stabilizerInit(StateEstimatorType estimator)
   if(isInit)
     return;
 
- // sensorsInit();
+  sensorsInit();
   stateEstimatorInit(estimator);
   controllerInit(ControllerTypeAutoSelect);
   powerDistributionInit();

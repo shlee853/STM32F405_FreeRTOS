@@ -62,7 +62,10 @@ Core/Src/Drivers/sensors.o: ../Core/Src/Drivers/sensors.c \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/cfassert.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h \
  /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h \
- /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors_bmi088_bmp388.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors.h \
+ /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors_mpu9250_lps25h.h
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Algo/stabilizer_types.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/imu_types.h:
@@ -128,3 +131,6 @@ Core/Src/Drivers/sensors.o: ../Core/Src/Drivers/sensors.c \
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/static_mem.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Utils/SEGGER_RTT.h:
 /home/swift/workspace/project/STM32F405_FreeRTOS/Core/Config/SEGGER_RTT_Conf.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors_bmi088_bmp388.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors.h:
+/home/swift/workspace/project/STM32F405_FreeRTOS/Core/Inc/Drivers/sensors_mpu9250_lps25h.h:

@@ -38,15 +38,15 @@
 #define str(s) #s
 
 #if defined(CONFIG_SENSORS_BMI088_BMP388) || defined(CONFIG_SENSORS_BMI088_SPI)
-//  #include "sensors_bmi088_bmp388.h"
+  #include "sensors_bmi088_bmp388.h"
 #endif
 
 #ifdef CONFIG_SENSORS_MPU9250_LPS25H
-//  #include "sensors_mpu9250_lps25h.h"
+  #include "sensors_mpu9250_lps25h.h"
 #endif
 
 #ifdef CONFIG_SENSORS_BOSCH
-//  #include "sensors_bosch.h"
+  #include "sensors_bosch.h"
 #endif
 
 
@@ -73,7 +73,7 @@ static void nullFunction(void) {}
 
 static const sensorsImplementation_t sensorImplementations[SensorImplementation_COUNT] = {
 
-/*
+
 #ifdef CONFIG_SENSORS_BMI088_BMP388
   {
     .implements = SensorImplementation_bmi088_bmp388,
@@ -142,7 +142,7 @@ static const sensorsImplementation_t sensorImplementations[SensorImplementation_
     .dataAvailableCallback = nullFunction,
   },
 #endif
-*/
+
 
 };
 
