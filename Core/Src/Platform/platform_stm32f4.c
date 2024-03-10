@@ -35,7 +35,7 @@
 #endif
 
 
-#define DEFAULT_PLATFORM_STRING "0;CF20"
+#define DEFAULT_PLATFORM_STRING "0;CF21"
 
 
 #ifndef UNIT_TEST_MODE

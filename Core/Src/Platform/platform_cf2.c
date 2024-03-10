@@ -32,6 +32,17 @@
 //#include "debug.h"
 
 static platformConfig_t configs[] = {
+
+#ifdef CONFIG_SENSORS_ICM20602
+  {
+    .deviceType = "CF21",
+    .deviceTypeName = "Crazyflie 2.1",
+    .sensorImplementation = SensorImplementation_icm20602,
+    .physicalLayoutAntennasAreClose = true,
+ //   .motorMap = motorMapDefaultBrushed,
+  },
+#endif
+
 #ifdef CONFIG_SENSORS_MPU9250_LPS25H
   {
     .deviceType = "CF20",
@@ -41,6 +52,7 @@ static platformConfig_t configs[] = {
 //    .motorMap = motorMapDefaultBrushed,
   },
 #endif
+
 #ifdef CONFIG_SENSORS_BMI088_BMP388
   {
     .deviceType = "CF21",
@@ -49,6 +61,7 @@ static platformConfig_t configs[] = {
     .physicalLayoutAntennasAreClose = true,
  //   .motorMap = motorMapDefaultBrushed,
   },
+
   {
     .deviceType = "C21B",
     .deviceTypeName = "Crazyflie 2.1 Brushless",
@@ -57,6 +70,8 @@ static platformConfig_t configs[] = {
   //  .motorMap = motorMapCF21Brushless,
   },
 #endif
+
+
 };
 
 const platformConfig_t* platformGetListOfConfigurations(int* nrOfConfigs) {

@@ -91,11 +91,12 @@ DMA_HandleTypeDef hdma_usart6_rx;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
-
+unsigned char data[14];
 
 unsigned long  t1=0;
 unsigned long  t2=0;
 
+extern Struct_ICM20602 ICM20602;
 
 //uint16_t adc1Val, adc2Val;
 
@@ -191,6 +192,7 @@ int main(void)
 
 
   freertos_IntroTitle();
+
 
   check_enter_bootloader();
 

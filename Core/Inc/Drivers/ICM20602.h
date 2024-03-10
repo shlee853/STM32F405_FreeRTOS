@@ -60,8 +60,8 @@ and indicates the Read (1) or Write (0) operation. The following 7 bits contain 
 
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
-#define CHIP_SELECT(ICM20602)		LL_GPIO_ResetOutputPin(ICM20602_SPI_CS_PORT, ICM20602_SPI_CS_PIN)
-#define CHIP_DESELECT(ICM20602)		LL_GPIO_SetOutputPin(ICM20602_SPI_CS_PORT, ICM20602_SPI_CS_PIN)
+#define CHIP_SELECT()		LL_GPIO_ResetOutputPin(ICM20602_SPI_CS_PORT, ICM20602_SPI_CS_PIN)
+#define CHIP_DESELECT()		LL_GPIO_SetOutputPin(ICM20602_SPI_CS_PORT, ICM20602_SPI_CS_PIN)
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
@@ -157,6 +157,8 @@ typedef struct _ICM20602{
 	float gyro_y;
 	float gyro_z;
 }Struct_ICM20602;
+
+
 
 /**
  * @brief ICM20602 structure definition.

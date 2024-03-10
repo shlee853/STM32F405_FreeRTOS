@@ -49,6 +49,10 @@
   #include "sensors_bosch.h"
 #endif
 
+#ifdef CONFIG_SENSORS_ICM20602
+  #include "sensors_icm20602.h"
+#endif
+
 
 typedef struct {
   SensorImplementation_t implements;
@@ -108,6 +112,27 @@ static const sensorsImplementation_t sensorImplementations[SensorImplementation_
     .dataAvailableCallback = sensorsBmi088Bmp388DataAvailableCallback,
   },
 #endif
+
+
+#ifdef CONFIG_SENSORS_ICM20602_SPI
+  {
+    .implements = SensorImplementation_icm20602_spi,
+    .init = sensorsIcm20602Init_SPI,
+    .test = sensorsIcm20602Test,
+    .areCalibrated = sensorsIcm20602AreCalibrated,
+    .manufacturingTest = sensorsIcm20602ManufacturingTest,
+    .acquire = sensorsIcm20602Acquire,
+    .waitDataReady = sensorsIcm206028WaitDataReady,
+    .readGyro = sensorsIcm20602ReadGyro,
+    .readAcc = sensorsIcm20602ReadAcc,
+    .readMag = sensorsIcm20602ReadMag,
+    .readBaro = sensorsIcm20602ReadBaro,
+    .setAccMode = sensorsIcm20602SetAccMode,
+    .dataAvailableCallback = sensorsIcm20602DataAvailableCallback,
+  },
+#endif
+
+
 #ifdef CONFIG_SENSORS_MPU9250_LPS25H
   {
     .implements = SensorImplementation_mpu9250_lps25h,

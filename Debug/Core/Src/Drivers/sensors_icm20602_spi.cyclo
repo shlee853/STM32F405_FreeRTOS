@@ -1,0 +1,9 @@
+../Core/Src/Drivers/sensors_icm20602_spi.c:35:13:spiSendByte	3
+../Core/Src/Drivers/sensors_icm20602_spi.c:55:13:spiReceiveByte	1
+../Core/Src/Drivers/sensors_icm20602_spi.c:60:13:spiDMATransaction	8
+../Core/Src/Drivers/sensors_icm20602_spi.c:113:20:spi_burst_read	4
+../Core/Src/Drivers/sensors_icm20602_spi.c:138:20:spi_burst_write	2
+../Core/Src/Drivers/sensors_icm20602_spi.c:155:13:spiConfigure	2
+../Core/Src/Drivers/sensors_icm20602_spi.c:179:6:sensorsIcm20602Init_SPI	2
+../Core/Src/Drivers/sensors_icm20602_spi.c:194:6:spiInit	2
+../Core/Src/Drivers/sensors_icm20602_spi.c:239:6:spiDMAInit	3

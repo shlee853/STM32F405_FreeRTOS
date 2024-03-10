@@ -35,6 +35,11 @@
 #define PLATFORM_DEVICE_TYPE_MAX_LEN (4 + 1)
 
 typedef enum {
+
+	#ifdef CONFIG_SENSORS_ICM20602
+	SensorImplementation_icm20602,
+	#endif
+
   #ifdef CONFIG_SENSORS_BMI088_BMP388
   SensorImplementation_bmi088_bmp388,
   #endif
@@ -50,6 +55,8 @@ typedef enum {
   #ifdef CONFIG_SENSORS_BOSCH
   SensorImplementation_bosch,
   #endif
+
+
 
   SensorImplementation_COUNT,
 } SensorImplementation_t;

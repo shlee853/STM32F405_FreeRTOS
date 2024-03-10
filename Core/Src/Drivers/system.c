@@ -151,7 +151,7 @@ void systemTask(void *arg)
   //  uartSendDataDmaBlocking(36, (uint8_t *)" Testing UART1 DMA and it is working\n");
 #endif
 
-  ICM20602_Initialization();	// 여기서 일정 시간 지연이 있어야 STM32 VCP 포트가 활성화됨 원인파악중
+//  ICM20602_Initialization();	// 여기서 일정 시간 지연이 있어야 STM32 VCP 포트가 활성화됨 원인파악중
 
   passthroughInit();	// Create passthrough task
 
